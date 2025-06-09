@@ -1,0 +1,13 @@
+[Unit]
+Description=Wakapi Time Tracking Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/petr/.wakapi/run-wakapi.zsh
+RemainAfterExit=yes
+User=petr
+
+[Install]
+WantedBy=multi-user.target
