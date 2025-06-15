@@ -1,10 +1,53 @@
-type ErrorTypes = string | string[] | Error[] | Error;
+export class UnexpectedError extends Error {
+    private constructor(public readonly data: unknown) {
+        super('Unknown Error');
+    }
+
+    public static create(data: unknown) {
+        return new UnexpectedError(data);
+    }
+}
+
+type ErrorTypes = string | string[] | Error[] | Error | UnexpectedError;
 
 export class Errors {
     private constructor(private readonly error: ErrorTypes) {}
 
-    static create(error: ErrorTypes): Errors {
+    public static create(error: ErrorTypes): Errors {
         return new Errors(error);
+    }
+
+    public static fromUnknown(value: unknown): Errors {
+        if (Errors.isErrorType(value)) {
+            return Errors.create(value);
+        }
+        return Errors.create(UnexpectedError.create(value));
+    }
+
+    public static isErrorType(value: unknown): value is ErrorTypes {
+        if (value instanceof Error) {
+            return true;
+        }
+
+        if (value instanceof UnexpectedError) {
+            return true;
+        }
+
+        if (typeof value === 'string') {
+            return true;
+        }
+
+        if (Array.isArray(value)) {
+            if (value.every((e) => typeof e === 'string')) {
+                return true;
+            }
+
+            if (value.every((e) => e instanceof Error)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public throw(): never {
@@ -13,7 +56,9 @@ export class Errors {
 
     public toString(): string {
         if (Array.isArray(this.error)) {
-            return this.error.map(e => e instanceof Error ? e.message : String(e)).join('; ');
+            return this.error
+                .map((e) => (e instanceof Error ? e.message : String(e)))
+                .join('; ');
         } else if (this.error instanceof Error) {
             return this.error.message;
         }
@@ -23,19 +68,19 @@ export class Errors {
 
 export class ResultOk<T> {
     public constructor(private readonly _value: T) {}
-    
+
     public isOk(): this is ResultOk<T> {
         return true;
     }
-    
+
     public isError(): this is ResultError {
         return false;
     }
-    
-    public unwrap(): T {
+
+    public assert(): T {
         return this._value;
     }
-    
+
     public get value(): T {
         return this._value;
     }
@@ -43,19 +88,19 @@ export class ResultOk<T> {
 
 export class ResultError<E extends Errors = Errors> {
     public constructor(private readonly error: E) {}
-    
+
     public isOk(): this is ResultOk<unknown> {
         return false;
     }
-    
+
     public isError(): this is ResultError {
         return true;
     }
-    
-    public unwrap(): never {
+
+    public assert(): never {
         this.error.throw();
     }
-    
+
     public get errors(): E {
         return this.error;
     }
@@ -67,21 +112,114 @@ export namespace Result {
         return new ResultOk(value);
     }
 
-    export function error(error: ErrorTypes): ResultError {
-        return new ResultError(Errors.create(error));
+    export function error(error: unknown): ResultError {
+        return new ResultError(Errors.fromUnknown(error));
     }
-}
 
-export type MatchOptions<T, U, V, E extends Errors = Errors> = {
-    ok: (value: T) => U;
-    err: (error: E) => V;
-};
+    export function isResult<T>(val: T | Result<T>): val is Result<T> {
+        return val instanceof ResultOk || val instanceof ResultError;
+    }
 
-export function match<T, U, V, E extends Errors = Errors>(value: ResultOk<T>, options: MatchOptions<T, U, V, E>): U;
-export function match<T, U, V, E extends Errors = Errors>(value: ResultError<E>, options: MatchOptions<T, U, V, E>): V;
-export function match<T, U, V, E extends Errors = Errors>(value: Result<T, E>, options: MatchOptions<T, U, V, E>) : U | V;
-export function match<T, U, V, E extends Errors = Errors>(value: Result<T, E>, {ok, err}: MatchOptions<T, U, V, E>) {
-    return value.isOk()
-        ? ok(value.value)
-        : err(value.errors);
+    export async function asyncAssert<T>(
+        val: Promise<Result<T>> | (() => Promise<Result<T>>),
+    ): Promise<T> {
+        if (typeof val === 'function') {
+            return (await val()).assert();
+        }
+        return (await val).assert();
+    }
+
+    export type MatchOptions<T, U, V, E extends Errors = Errors> = {
+        ok: (value: T) => U;
+        err: (error: E) => V;
+    };
+
+    export function match<T, U, V, E extends Errors = Errors>(
+        value: ResultOk<T>,
+        options: MatchOptions<T, U, V, E>,
+    ): U;
+    export function match<T, U, V, E extends Errors = Errors>(
+        value: ResultError<E>,
+        options: MatchOptions<T, U, V, E>,
+    ): V;
+    export function match<T, U, V, E extends Errors = Errors>(
+        value: Result<T, E>,
+        options: MatchOptions<T, U, V, E>,
+    ): U | V;
+    export function match<T, U, V, E extends Errors = Errors>(
+        value: Result<T, E>,
+        { ok, err }: MatchOptions<T, U, V, E>,
+    ) {
+        return value.isOk() ? ok(value.value) : err(value.errors);
+    }
+
+    type NotPromiseNotResult<T> = T extends Function
+        ? never
+        : T extends Promise<infer _>
+        ? never
+        : T extends Result<infer _>
+        ? never
+        : T;
+    type NotPromiseIsResultFn<T> = T extends Function
+        ? never
+        : T extends Promise<infer _>
+        ? never
+        : T extends Result<infer _>
+        ? T
+        : never;
+
+    type IsPromiseNotResultFn<T> = T extends Function
+        ? never
+        : T extends Promise<infer _>
+        ? T extends Result<infer _>
+            ? never
+            : T
+        : never;
+
+    export function ensure<T>(val: NotPromiseNotResult<T>): Result<T>;
+    export function ensure<T>(val: NotPromiseIsResultFn<T>): T;
+    export function ensure<T>(val: IsPromiseNotResultFn<T>): Promise<Result<T>>;
+    export function ensure<T>(fn: () => NotPromiseNotResult<T>): Result<T>;
+    export function ensure<T>(fn: () => NotPromiseIsResultFn<T>): T;
+    export function ensure<T>(
+        fn: () => IsPromiseNotResultFn<T>,
+    ): Promise<Result<T>>;
+
+    export function ensure<T>(
+        arg: T extends Function
+            ? never
+            : T extends Result<infer _>
+            ? never
+            : T extends Promise<infer _>
+            ? never
+            :
+                  | (() => T | Result<T> | Promise<T> | Promise<Result<T>>)
+                  | T
+                  | Result<T>
+                  | Promise<T>
+                  | Promise<Result<T>>,
+    ): Result<T> | Promise<Result<T>> {
+        const processAwaited = (res: T | Result<T>) => {
+            if (isResult(res)) {
+                return res;
+            }
+            return ok(res);
+        };
+
+        try {
+            let res;
+            if (typeof arg === 'function') {
+                res = arg();
+            } else {
+                res = arg;
+            }
+
+            if (res instanceof Promise) {
+                return res.then(processAwaited);
+            }
+            return processAwaited(res);
+        } catch (err) {
+            return error(err);
+        }
+    }
 }
