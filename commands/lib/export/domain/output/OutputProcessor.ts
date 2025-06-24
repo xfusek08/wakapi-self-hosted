@@ -1,7 +1,7 @@
 import { Result } from '../../utils/type-utils';
-import OutputReport from './ports/OutputReport';
 import { OutputRepositoryQuery } from './ports/OutputRepositoryQuery';
 import { OutputRepositoryMutator } from './ports/OutputRepositoryMutator';
+import Report from '../common/ports/Report';
 
 export default class OutputProcessor {
     private constructor(
@@ -21,7 +21,7 @@ export default class OutputProcessor {
         );
     }
 
-    public async processReport(outputReport: OutputReport) {
+    public async processReport(outputReport: Report) {
         return Result.ensure(() => {
             throw new Error('Not implemented - processReport');
         });
