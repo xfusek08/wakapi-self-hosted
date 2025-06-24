@@ -4,6 +4,7 @@ import { Result } from '../../../utils/type-utils';
 import InputProject from '../../../domain/input/ports/InputProject';
 import WakapiProject from './WakapiProject';
 import InputRecord from '../../../domain/input/ports/InputRecord';
+import WakapiRecord from './WakapiRecord';
 
 interface ProjectRow {
     project: string;
@@ -41,44 +42,14 @@ export class WakapiDatabase implements InputRepositoryQuery {
         to: Date;
     }): Promise<Result<InputProject[]>> {
         try {
-            const query = this._database.query<
-                { from: string; to: string },
-                ProjectRow
-            >(`
-                SELECT DISTINCT project
-                FROM heartbeats
-                WHERE time > $from AND time < $to
-                ORDER BY project
-            `);
+            // Convert dates to ISO strings for SQLite query
+            const fromStr = range.from
+                .toISOString()
+                .slice(0, 19)
+                .replace('T', ' ');
+            const toStr = range.to.toISOString().slice(0, 19).replace('T', ' ');
 
-            const projects = query.all({
-                from: range.from.toISOString(),
-                to: range.to.toISOString(),
-            });
-
-            const wakapiProjects = projects.map((row) =>
-                WakapiProject.create(row.project),
-            );
-
-            return Result.ok(wakapiProjects);
-        } catch (error) {
-            return Result.error(
-                `Failed to get projects: ${
-                    error instanceof Error ? error.message : String(error)
-                }`,
-            );
-        }
-    }
-
-    getRecordsForProject<P extends InputProject = InputProject>(
-        project: P,
-        range: { from: Date; to: Date },
-    ): Promise<Result<InputRecord<P>[]>> {
-        try {
-            const query = this._database.query<
-                { projectName: string; from: string; to: string },
-                TimeFrameRow
-            >(`
+            const query = `
                 WITH
                     heartbeats_with_gap AS (
                         SELECT
@@ -101,9 +72,8 @@ export class WakapiDatabase implements InputRepositoryQuery {
                         FROM
                             heartbeats
                         WHERE
-                            time > $from
-                            AND time < $to
-                            AND project = $projectName
+                            time > ?
+                            AND time < ?
                     ),
                     grouped_heartbeats AS (
                         SELECT
@@ -112,6 +82,91 @@ export class WakapiDatabase implements InputRepositoryQuery {
                                 CASE
                                     WHEN gap > 900
                                     OR project <> prev_project THEN 1
+                                    ELSE 0
+                                END
+                            ) OVER (
+                                ORDER BY
+                                    time
+                            ) AS chunk_id
+                        FROM
+                            heartbeats_with_gap
+                    ),
+                    chunk_data AS (
+                        SELECT
+                            chunk_id,
+                            project,
+                            MIN(time) AS start_time,
+                            MAX(time) AS end_time
+                        FROM
+                            grouped_heartbeats
+                        GROUP BY
+                            chunk_id,
+                            project
+                    )
+                SELECT DISTINCT
+                    project
+                FROM
+                    chunk_data
+                ORDER BY
+                    project
+            `;
+
+            const statement = this._database.prepare(query);
+            const rows = statement.all(fromStr, toStr) as ProjectRow[];
+
+            const projects = rows.map((row) =>
+                WakapiProject.create(row.project),
+            );
+
+            return Result.ok(projects);
+        } catch (error) {
+            return Result.error(
+                `Failed to get projects: ${
+                    error instanceof Error ? error.message : String(error)
+                }`,
+            );
+        }
+    }
+
+    getRecordsForProject<P extends InputProject = InputProject>(
+        project: P,
+        range: { from: Date; to: Date },
+    ): Promise<Result<InputRecord<P>[]>> {
+        try {
+            // Convert dates to ISO strings for SQLite query
+            const fromStr = range.from
+                .toISOString()
+                .slice(0, 19)
+                .replace('T', ' ');
+            const toStr = range.to.toISOString().slice(0, 19).replace('T', ' ');
+
+            const query = `
+                WITH
+                    heartbeats_with_gap AS (
+                        SELECT
+                            *,
+                            (
+                                strftime('%s', time) - strftime(
+                                    '%s',
+                                    LAG(time) OVER (
+                                        ORDER BY
+                                            time
+                                    )
+                                )
+                            ) AS gap
+                        FROM
+                            heartbeats
+                        WHERE
+                            time > ?
+                            AND time < ?
+                            AND project = ?
+                    ),
+                    grouped_heartbeats AS (
+                        SELECT
+                            *,
+                            SUM(
+                                CASE
+                                    WHEN gap > 900 THEN 1
                                     ELSE 0
                                 END
                             ) OVER (
@@ -133,18 +188,19 @@ export class WakapiDatabase implements InputRepositoryQuery {
                     project
                 ORDER BY
                     start_time
-            `);
+            `;
 
-            const timeFrames = query.all({
-                projectName: project.getUID(),
-                from: range.from.toISOString(),
-                to: range.to.toISOString(),
-            });
+            const statement = this._database.prepare(query);
+            const rows = statement.all(
+                fromStr,
+                toStr,
+                project.getUID(),
+            ) as TimeFrameRow[];
 
-            const records: InputRecord<P>[] = timeFrames.map((frame) => ({
-                from: new Date(frame.start_time),
-                to: new Date(frame.end_time),
-                project,
+            const records: InputRecord<P>[] = rows.map((row) => ({
+                from: new Date(row.start_time),
+                to: new Date(row.end_time),
+                project: project,
             }));
 
             return Promise.resolve(Result.ok(records));

@@ -21,9 +21,14 @@ export class Errors {
     }
 
     public static fromUnknown(value: unknown): Errors {
+        if (value instanceof Errors) {
+            return value;
+        }
+
         if (Errors.isErrorType(value)) {
             return Errors.create(value);
         }
+
         return Errors.create(UnexpectedError.create(value));
     }
 
@@ -116,6 +121,9 @@ export namespace Result {
     }
 
     export function error(error: unknown): ResultError {
+        if (error instanceof ResultError) {
+            return error;
+        }
         return new ResultError(Errors.fromUnknown(error));
     }
 
@@ -156,91 +164,19 @@ export namespace Result {
         return value.isOk() ? ok(value.value) : err(value.errors);
     }
 
-    type NotPromiseNotResult<T> = T extends
-        | Function
-        | ((...args: any[]) => any)
-        | (() => any)
-        ? never
-        : T extends Promise<infer _>
-          ? never
-          : T extends Result<infer _>
-            ? never
-            : T;
-
-    type NotPromiseIsResultFn<T> = T extends
-        | Function
-        | ((...args: any[]) => any)
-        | (() => any)
-        ? never
-        : T extends Promise<infer _>
-          ? never
-          : T extends Result<infer _>
-            ? T
-            : never;
-
-    type UnwrapPromisedNotResultValue<T> = T extends
-        | Function
-        | ((...args: any[]) => any)
-        | (() => any)
-        ? never
-        : T extends Promise<infer U>
-          ? U extends Result<infer _>
-              ? never
-              : U
-          : never;
-
-    type IsPromiseNotResult<T> =
-        UnwrapPromisedNotResultValue<T> extends never ? never : T;
-
-    type UnwrapPromisedResultValue<T> = T extends
-        | Function
-        | ((...args: any[]) => any)
-        | (() => any)
-        ? never
-        : T extends Promise<infer U>
-          ? U extends Result<infer V>
-              ? V
-              : never
-          : never;
-
-    type IsPromiseIsResultValue<T> =
-        UnwrapPromisedResultValue<T> extends never ? never : T;
+    type EnsuredResult<T> =
+        T extends Result<infer U>
+            ? Result<U>
+            : T extends Promise<Result<infer U>>
+              ? Promise<Result<U>>
+              : T extends Promise<infer U>
+                ? Promise<Result<U>>
+                : Result<T>;
 
     // Ensuring that the given value will be wrapped as a result or promised result.
-    export function ensure<T>(val: NotPromiseNotResult<T>): Result<T>;
-    export function ensure<T>(val: NotPromiseIsResultFn<T>): T;
-    export function ensure<T>(
-        val: IsPromiseNotResult<T>,
-    ): UnwrapPromisedNotResultValue<T>;
-    export function ensure<T>(
-        val: IsPromiseIsResultValue<T>,
-    ): UnwrapPromisedResultValue<T>;
-
-    // Ensuring that the result of given callback will be wrapped as a result or promised result.
-    export function ensure<T>(fn: () => NotPromiseNotResult<T>): Result<T>;
-    export function ensure<T>(fn: () => NotPromiseIsResultFn<T>): T;
-    export function ensure<T>(
-        fn: () => IsPromiseNotResult<T>,
-    ): Promise<Result<UnwrapPromisedNotResultValue<T>>>;
-    export function ensure<T>(
-        fn: () => IsPromiseIsResultValue<T>,
-    ): Promise<Result<UnwrapPromisedResultValue<T>>>;
-
-    // Actual implementation of ensure function
-    export function ensure<T>(
-        arg: T extends Function
-            ? never
-            : T extends Result<infer _>
-              ? never
-              : T extends Promise<infer _>
-                ? never
-                :
-                      | (() => T | Result<T> | Promise<T> | Promise<Result<T>>)
-                      | T
-                      | Result<T>
-                      | Promise<T>
-                      | Promise<Result<T>>,
-    ): Result<T> | Promise<Result<T>> {
+    export function ensure<T>(fn: () => T): EnsuredResult<T>;
+    export function ensure<T>(fn: T): EnsuredResult<T>;
+    export function ensure<T>(arg: T): Result<T> | Promise<Result<T>> {
         const processAwaited = (res: T | Result<T>) => {
             if (isResult(res)) {
                 return res;

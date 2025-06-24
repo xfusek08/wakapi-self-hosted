@@ -22,7 +22,7 @@ WITH
         FROM
             heartbeats
         WHERE
-            time > '2025-05-16'
+            time > '2025-06-01'
             AND time < '2025-05-17'
     ),
     grouped_heartbeats AS (

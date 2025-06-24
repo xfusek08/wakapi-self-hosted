@@ -16,11 +16,11 @@ WITH
         FROM
             heartbeats
         WHERE
-            time > '2025-06-12'
-            AND time < '2025-06-13'
-            -- AND project = 'tikitio'
+            time > '2025-05-16'
+            AND time < '2025-06-16'
+            AND project = 'tikitio'
             -- AND project = 'selektor-detailu'
-            AND project = 'MBO Optia'
+            -- AND project = 'MBO Optia'
     ),
     grouped_heartbeats AS (
         SELECT

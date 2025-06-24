@@ -31,6 +31,8 @@ export default class InputProcessor {
                 }),
             );
 
+            console.log('projectsResult', projectsResult);
+
             const allRecords: InputRecord[] = [];
             for (const project of projectsResult) {
                 const records = await Result.asyncAssert(
@@ -39,6 +41,7 @@ export default class InputProcessor {
                         to,
                     }),
                 );
+                console.log(project, records);
                 allRecords.push(...records);
             }
 

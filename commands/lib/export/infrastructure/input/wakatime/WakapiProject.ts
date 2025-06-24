@@ -1,4 +1,4 @@
-import InputProject from 'export/domain/input/ports/InputProject.js';
+import InputProject from '../../../domain/input/ports/InputProject.js';
 import { Result } from '../../../utils/type-utils.js';
 
 export default class WakapiProject implements InputProject {

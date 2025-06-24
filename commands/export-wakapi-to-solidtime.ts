@@ -83,7 +83,7 @@ export default defineCommand({
                     SolidtimeRepositoryQuery.create({ configuration }),
                 err: (error) => {
                     if (!options['dry-run']) {
-                        error.throw();
+                        return Result.error(error);
                     }
                     return SolidtimeRepositoryQueryMock.create();
                 },
