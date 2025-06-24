@@ -1,6 +1,6 @@
+import { OutputRepositoryMutator } from '../../../domain/output/ports/OutputRepositoryMutator';
+import { Result } from '../../../utils/type-utils';
 import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
-import { Result } from 'export/utils/type-utils';
-import { OutputRepositoryMutator } from 'export/domain/output/ports/OutputRepositoryMutator';
 
 export default class SolidtimeRepositoryMutator
     implements OutputRepositoryMutator

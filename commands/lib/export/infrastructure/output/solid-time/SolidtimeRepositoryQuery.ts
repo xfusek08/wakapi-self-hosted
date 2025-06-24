@@ -1,6 +1,6 @@
-import { OutputRepositoryQuery } from 'export/domain/output/ports/OutputRepositoryQuery';
+import { OutputRepositoryQuery } from '../../../domain/output/ports/OutputRepositoryQuery';
+import { Result } from '../../../utils/type-utils';
 import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
-import { Result } from 'export/utils/type-utils';
 
 export default class SolidtimeRepositoryQuery implements OutputRepositoryQuery {
     private constructor(

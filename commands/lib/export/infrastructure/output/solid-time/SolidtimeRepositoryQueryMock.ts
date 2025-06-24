@@ -1,5 +1,5 @@
-import { OutputRepositoryQuery } from 'export/domain/output/ports/OutputRepositoryQuery';
-import { Result } from 'export/utils/type-utils';
+import { OutputRepositoryQuery } from '../../../domain/output/ports/OutputRepositoryQuery';
+import { Result } from '../../../utils/type-utils';
 
 export default class SolidtimeRepositoryQueryMock
     implements OutputRepositoryQuery
