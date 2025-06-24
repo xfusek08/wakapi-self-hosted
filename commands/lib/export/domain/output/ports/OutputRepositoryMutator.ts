@@ -1,4 +1,4 @@
-import { Result } from '../../../utils/type-utils';
+import { Result } from '../../utils/type-utils';
 import Project from '../../common/ports/Project';
 import TimeRecord from '../../common/ports/TimeRecord';
 

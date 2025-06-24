@@ -1,7 +1,7 @@
 import { defineCommand, log } from 'bunner/framework';
 import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
 import SolidtimeApiConnectionConfiguration from './lib/export/infrastructure/output/solid-time/SolidtimeApiConnectionConfiguration';
-import { Result } from './lib/export/utils/type-utils';
+import { Result } from './lib/export/domain/utils/type-utils';
 import SolidtimeRepositoryQuery from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQuery';
 import SolidtimeRepositoryQueryMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQueryMock';
 import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';

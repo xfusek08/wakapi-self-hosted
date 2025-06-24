@@ -1,10 +1,9 @@
 import { Database } from 'bun:sqlite';
 import { InputRepositoryQuery } from '../../../domain/input/ports/InputRepositoryQuery';
-import { Result } from '../../../utils/type-utils';
-import Project from '../../../domain/common/ports/Project';
+import { Result } from '../../../domain/utils/type-utils';
 import WakapiProject from './WakapiProject';
 import TimeRecord from '../../../domain/common/ports/TimeRecord';
-import WakapiRecord from './WakapiRecord';
+import WakapiTimeRecord from './WakapiTimeRecord';
 
 interface ProjectRow {
     project: string;
@@ -17,7 +16,7 @@ interface TimeFrameRow {
     end_time: string;
 }
 
-export class WakapiDatabase implements InputRepositoryQuery {
+export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
     private constructor(private readonly _database: Database) {}
 
     static create({
@@ -26,30 +25,22 @@ export class WakapiDatabase implements InputRepositoryQuery {
         wakapiDbPath: string;
     }): Result<WakapiDatabase> {
         try {
-            const db = new Database(wakapiDbPath, { readonly: true });
+            const db = new Database(wakapiDbPath, {
+                readonly: true,
+                strict: true,
+            });
             return Result.ok(new WakapiDatabase(db));
         } catch (error) {
-            return Result.error(
-                `Failed to connect to Wakapi database: ${
-                    error instanceof Error ? error.message : String(error)
-                }`,
-            );
+            return Result.error(error);
         }
     }
 
     public async getProjects(range: {
         from: Date;
         to: Date;
-    }): Promise<Result<Project[]>> {
+    }): Promise<Result<WakapiProject[]>> {
         try {
-            // Convert dates to ISO strings for SQLite query
-            const fromStr = range.from
-                .toISOString()
-                .slice(0, 19)
-                .replace('T', ' ');
-            const toStr = range.to.toISOString().slice(0, 19).replace('T', ' ');
-
-            const query = `
+            const sql = `
                 WITH
                     heartbeats_with_gap AS (
                         SELECT
@@ -72,8 +63,8 @@ export class WakapiDatabase implements InputRepositoryQuery {
                         FROM
                             heartbeats
                         WHERE
-                            time > ?
-                            AND time < ?
+                            time > $from
+                            AND time < $to
                     ),
                     grouped_heartbeats AS (
                         SELECT
@@ -111,11 +102,14 @@ export class WakapiDatabase implements InputRepositoryQuery {
                     project
             `;
 
-            const statement = this._database.prepare(query);
-            const rows = statement.all(fromStr, toStr) as ProjectRow[];
+            const query = this._database.query(sql);
+            const rows = query.all({
+                from: this.dateToParamString(range.from),
+                to: this.dateToParamString(range.to),
+            });
 
             const projects = rows.map((row) =>
-                WakapiProject.create(row.project),
+                WakapiProject.parse(row).assert(),
             );
 
             return Result.ok(projects);
@@ -128,19 +122,12 @@ export class WakapiDatabase implements InputRepositoryQuery {
         }
     }
 
-    getRecordsForProject(
-        project: Project,
+    public getRecordsForProject(
+        project: WakapiProject,
         range: { from: Date; to: Date },
     ): Promise<Result<TimeRecord[]>> {
-        try {
-            // Convert dates to ISO strings for SQLite query
-            const fromStr = range.from
-                .toISOString()
-                .slice(0, 19)
-                .replace('T', ' ');
-            const toStr = range.to.toISOString().slice(0, 19).replace('T', ' ');
-
-            const query = `
+        return Result.ensure(async () => {
+            const sql = `
                 WITH
                     heartbeats_with_gap AS (
                         SELECT
@@ -157,9 +144,9 @@ export class WakapiDatabase implements InputRepositoryQuery {
                         FROM
                             heartbeats
                         WHERE
-                            time > ?
-                            AND time < ?
-                            AND project = ?
+                            time > $from
+                            AND time < $to
+                            AND project = $project
                     ),
                     grouped_heartbeats AS (
                         SELECT
@@ -190,28 +177,22 @@ export class WakapiDatabase implements InputRepositoryQuery {
                     start_time
             `;
 
-            const statement = this._database.prepare(query);
-            const rows = statement.all(
-                fromStr,
-                toStr,
-                project.getIdentifier(),
-            ) as TimeFrameRow[];
+            const statement = this._database.query(sql);
+            const rows = statement.all({
+                from: this.dateToParamString(range.from),
+                to: this.dateToParamString(range.to),
+                project: project.name,
+            });
 
-            const records: TimeRecord[] = rows.map((row) => ({
-                from: new Date(row.start_time),
-                to: new Date(row.end_time),
-                project: project,
-            }));
-
-            return Promise.resolve(Result.ok(records));
-        } catch (error) {
-            return Promise.resolve(
-                Result.error(
-                    `Failed to get records for project ${project.getIdentifier()}: ${
-                        error instanceof Error ? error.message : String(error)
-                    }`,
-                ),
+            const parsed = rows.map((row) =>
+                WakapiTimeRecord.parse(row).assert(),
             );
-        }
+
+            return Result.ok(parsed);
+        });
+    }
+
+    private dateToParamString(date: Date): string {
+        return date.toISOString().slice(0, 19).replace('T', ' ');
     }
 }

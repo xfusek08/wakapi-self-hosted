@@ -1,5 +1,6 @@
+import { ArkErrors, type } from 'arktype';
 import Project from '../../../domain/common/ports/Project.js';
-import { Result } from '../../../utils/type-utils.js';
+import { Result } from '../../../domain/utils/type-utils.js';
 
 export default class WakapiProject implements Project {
     private constructor(private readonly _name: string) {}
@@ -8,37 +9,25 @@ export default class WakapiProject implements Project {
         return new WakapiProject(name);
     }
 
-    getIdentifier(): string {
+    static parse(data: unknown): Result<WakapiProject> {
+        const parseResult = type({
+            project: 'string',
+        })(data);
+
+        if (parseResult instanceof ArkErrors) {
+            return Result.error(
+                `Failed to parse WakapiProject: ${parseResult.summary}`,
+            );
+        }
+
+        return Result.ok(new WakapiProject(parseResult.project));
+    }
+
+    public get name(): string {
         return this._name;
     }
 
-    static fromUnknownArray(data: unknown): Result<WakapiProject[]> {
-        return Result.ensure(() => {
-            if (!Array.isArray(data)) {
-                throw new Error('Expected an array');
-            }
-
-            const projects: WakapiProject[] = [];
-
-            for (let i = 0; i < data.length; i++) {
-                const item = data[i];
-
-                if (!item || typeof item !== 'object') {
-                    throw new Error(
-                        `Invalid item at index ${i}: expected object`,
-                    );
-                }
-
-                if (!('project' in item) || typeof item.project !== 'string') {
-                    throw new Error(
-                        `Invalid item at index ${i}: missing or invalid 'project' property`,
-                    );
-                }
-
-                projects.push(WakapiProject.create(item.project));
-            }
-
-            return projects;
-        });
+    public getIdentifier(): string {
+        return this.name;
     }
 }

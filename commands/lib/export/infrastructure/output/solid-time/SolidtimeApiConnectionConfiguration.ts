@@ -1,4 +1,4 @@
-import { Result } from '../../../utils/type-utils.js';
+import { Result } from '../../../domain/utils/type-utils.js';
 
 export default class SolidtimeApiConnectionConfiguration {
     private constructor(

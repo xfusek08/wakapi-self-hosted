@@ -1,6 +1,7 @@
 {
     "dependencies": {
-        "bunner": "file:/home/petr/.wakapi/bunner"
+        "arktype": "^2.1.20",
+        "bunner": "file:../bunner"
     },
     "devDependencies": {
         "@types/bun": "^1.2.12",

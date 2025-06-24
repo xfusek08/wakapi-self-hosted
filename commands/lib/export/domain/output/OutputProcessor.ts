@@ -1,7 +1,8 @@
-import { Result } from '../../utils/type-utils';
+import { Result } from '../utils/type-utils';
 import { OutputRepositoryQuery } from './ports/OutputRepositoryQuery';
 import { OutputRepositoryMutator } from './ports/OutputRepositoryMutator';
 import Report from '../common/ports/Report';
+import { TextBuilder } from 'bunner/framework';
 
 export default class OutputProcessor {
     private constructor(
@@ -23,7 +24,15 @@ export default class OutputProcessor {
 
     public async processReport(outputReport: Report) {
         return Result.ensure(() => {
-            throw new Error('Not implemented - processReport');
+            const tb = new TextBuilder();
+            for (const report of outputReport.records) {
+                tb.aligned([
+                    report.project.getIdentifier(),
+                    report.from.toISOString(),
+                    report.to.toISOString(),
+                ]);
+            }
+            console.log(tb.render());
         });
     }
 }

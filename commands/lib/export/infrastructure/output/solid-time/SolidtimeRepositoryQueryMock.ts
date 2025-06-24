@@ -1,6 +1,6 @@
 import Project from '../../../domain/common/ports/Project';
 import { OutputRepositoryQuery } from '../../../domain/output/ports/OutputRepositoryQuery';
-import { Result } from '../../../utils/type-utils';
+import { Result } from '../../../domain/utils/type-utils';
 import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
 
 export default class SolidtimeRepositoryQueryMock
