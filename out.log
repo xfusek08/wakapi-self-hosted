@@ -1,0 +1,1811 @@
+🚀 Starting Wakapi to Solidtime export...
+
+📖 Step 1: Reading data from Wakapi database...
+projectsResult [
+  WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"MBO Optia"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"selektor-konstrukci"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"selektor-skel.heluz.cz"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }[0m[2m,[0m WakapiProject {
+    [0m_name[2m:[0m [0m[32m[0m[32m"tikitio"[0m[0m[0m[2m,[0m
+    [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-02T07:39:25.824Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-02T08:04:46.214Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T15:49:53.295Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T15:52:19.669Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-08T10:19:59.011Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-08T10:20:01.736Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T08:02:16.287Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T08:02:16.750Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T10:09:15.280Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T10:12:18.309Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T10:41:41.213Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T10:41:41.213Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T11:12:21.491Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T11:43:12.584Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T12:00:07.243Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T16:43:36.981Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-10T13:12:32.855Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-10T13:40:16.451Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-10T14:10:56.979Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-10T14:10:56.979Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-10T16:12:24.861Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-10T16:33:17.291Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-11T08:19:28.054Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-11T09:25:48.000Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-11T11:47:14.482Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-11T13:10:44.501Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-11T14:36:45.224Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-11T14:43:18.462Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-12T11:23:00.405Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-12T11:28:05.327Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T19:09:40.715Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T19:27:49.023Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T19:59:22.369Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T20:22:15.995Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T21:22:48.910Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T22:28:00.088Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m".wakapi"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"MBO Optia"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-12T10:30:02.019Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-12T12:46:21.717Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"MBO Optia"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-12T13:35:56.726Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-12T14:54:56.797Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"MBO Optia"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T16:40:51.470Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T16:40:53.213Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"MBO Optia"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T19:09:20.834Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T19:09:20.834Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"MBO Optia"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T10:53:45.932Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T12:33:39.657Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T13:26:41.829Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T14:31:38.917Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T10:56:31.012Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T10:56:31.012Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T08:04:41.670Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T08:53:57.934Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T09:50:21.448Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T10:12:09.488Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T10:27:25.951Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T10:27:25.951Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T11:12:11.721Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T11:57:08.882Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T16:51:30.757Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T18:15:48.693Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T18:34:30.739Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T19:07:21.534Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T20:24:00.140Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T20:24:00.140Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T21:03:26.513Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T21:03:26.513Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bash-utils"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-03T14:09:04.818Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-03T14:09:06.673Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T10:22:51.590Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T10:22:54.125Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T10:49:07.186Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T10:49:47.812Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T12:34:47.971Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T12:39:41.060Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T13:08:50.372Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T13:37:46.775Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T14:31:37.117Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T14:45:42.736Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T15:09:21.806Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T15:11:51.386Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T20:36:14.874Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T20:38:35.859Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T08:04:07.164Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T08:04:07.164Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T08:24:09.100Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T08:24:09.100Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T11:31:18.472Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T11:31:45.670Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T11:59:25.698Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T11:59:25.698Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T12:41:17.081Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T12:41:19.819Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-15T20:25:09.201Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-15T21:58:25.094Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"bunner"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T10:52:03.821Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T13:47:09.664Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T14:06:50.999Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T14:27:19.795Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-06T11:33:38.818Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-06T12:46:44.609Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-06T13:06:41.641Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-06T14:31:31.632Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T14:00:48.257Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T15:49:41.132Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T11:18:50.994Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T11:21:21.638Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-detailu"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"selektor-konstrukci"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T13:50:22.751Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T14:05:20.137Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-konstrukci"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"selektor-skel.heluz.cz"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T13:52:29.864Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T14:05:54.085Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"selektor-skel.heluz.cz"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T10:18:28.438Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T10:22:54.668Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T10:49:09.604Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T10:50:24.995Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T12:34:22.966Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T13:18:11.542Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T14:32:14.877Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T15:13:09.456Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T17:16:57.945Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T17:16:57.945Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-04T17:36:40.292Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-04T17:39:08.400Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T21:14:40.533Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T21:15:28.253Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-05T21:32:17.834Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-05T21:48:37.186Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-06T11:28:55.376Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-06T11:28:55.376Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T16:45:21.618Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T16:52:37.419Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T18:18:39.593Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T18:18:39.593Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T18:42:51.113Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T21:18:04.081Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-08T09:47:52.910Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-08T10:10:31.313Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-08T10:26:18.571Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-08T10:41:01.521Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-08T12:10:27.689Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-08T13:43:42.966Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-08T16:50:37.461Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-08T18:52:17.639Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T10:07:31.310Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T10:08:57.239Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-09T11:19:09.434Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-09T11:29:12.079Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-10T14:11:50.655Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-10T14:17:57.104Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tenantry"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+WakapiProject {
+  [0m_name[2m:[0m [0m[32m[0m[32m"tikitio"[0m[0m[0m[2m,[0m
+  [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+} [
+  {
+    [0mfrom[2m:[0m [0m[35m2025-06-02T10:08:42.006Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-02T15:45:07.604Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tikitio"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-03T08:22:49.479Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-03T09:41:00.446Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tikitio"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-03T10:01:19.827Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-03T14:22:54.137Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tikitio"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }[0m[2m,[0m {
+    [0mfrom[2m:[0m [0m[35m2025-06-07T19:13:04.864Z[0m[0m[2m,[0m
+    [0mto[2m:[0m [0m[35m2025-06-07T19:13:04.864Z[0m[0m[2m,[0m
+    [0mproject[2m:[0m WakapiProject {
+      [0m_name[2m:[0m [0m[32m[0m[32m"tikitio"[0m[0m[0m[2m,[0m
+      [0mgetUID[2m:[0m [36m[Function: getUID][0m[0m[2m,[0m
+    }[0m[2m,[0m
+  }
+]
+✅ Input report generated: 78 records found
+
+🔄 Step 2: Converting Wakapi data to Solidtime format...
+✅ Output report created: 78 records ready for export
+
+📤 Step 3: Exporting data to Solidtime...
+🚀 Starting to process output report from 2025-06-01T00:00:00.000Z to 2025-06-16T00:00:00.000Z
+📊 Total records to process: 78
+📁 Unique projects in report: .wakapi, tikitio, bunner, tenantry, bash-utils, selektor-detailu, selektor-konstrukci, selektor-skel.heluz.cz, MBO Optia
+🔍 Checking if project ".wakapi" exists...
+🔍 [MOCK] Searching for project with name: ".wakapi"
+❌ [MOCK] Project not found: ".wakapi"
+➕ Creating new project: ".wakapi"
+➕ [MOCK] Creating project: ".wakapi" with ID: project-1000
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": ".wakapi" }
+✅ [MOCK] Project created successfully: ID project-1000
+🔍 Checking if project "tikitio" exists...
+🔍 [MOCK] Searching for project with name: "tikitio"
+❌ [MOCK] Project not found: "tikitio"
+➕ Creating new project: "tikitio"
+➕ [MOCK] Creating project: "tikitio" with ID: project-1001
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "tikitio" }
+✅ [MOCK] Project created successfully: ID project-1001
+🔍 Checking if project "bunner" exists...
+🔍 [MOCK] Searching for project with name: "bunner"
+❌ [MOCK] Project not found: "bunner"
+➕ Creating new project: "bunner"
+➕ [MOCK] Creating project: "bunner" with ID: project-1002
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "bunner" }
+✅ [MOCK] Project created successfully: ID project-1002
+🔍 Checking if project "tenantry" exists...
+🔍 [MOCK] Searching for project with name: "tenantry"
+❌ [MOCK] Project not found: "tenantry"
+➕ Creating new project: "tenantry"
+➕ [MOCK] Creating project: "tenantry" with ID: project-1003
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "tenantry" }
+✅ [MOCK] Project created successfully: ID project-1003
+🔍 Checking if project "bash-utils" exists...
+🔍 [MOCK] Searching for project with name: "bash-utils"
+❌ [MOCK] Project not found: "bash-utils"
+➕ Creating new project: "bash-utils"
+➕ [MOCK] Creating project: "bash-utils" with ID: project-1004
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "bash-utils" }
+✅ [MOCK] Project created successfully: ID project-1004
+🔍 Checking if project "selektor-detailu" exists...
+🔍 [MOCK] Searching for project with name: "selektor-detailu"
+❌ [MOCK] Project not found: "selektor-detailu"
+➕ Creating new project: "selektor-detailu"
+➕ [MOCK] Creating project: "selektor-detailu" with ID: project-1005
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "selektor-detailu" }
+✅ [MOCK] Project created successfully: ID project-1005
+🔍 Checking if project "selektor-konstrukci" exists...
+🔍 [MOCK] Searching for project with name: "selektor-konstrukci"
+❌ [MOCK] Project not found: "selektor-konstrukci"
+➕ Creating new project: "selektor-konstrukci"
+➕ [MOCK] Creating project: "selektor-konstrukci" with ID: project-1006
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "selektor-konstrukci" }
+✅ [MOCK] Project created successfully: ID project-1006
+🔍 Checking if project "selektor-skel.heluz.cz" exists...
+🔍 [MOCK] Searching for project with name: "selektor-skel.heluz.cz"
+❌ [MOCK] Project not found: "selektor-skel.heluz.cz"
+➕ Creating new project: "selektor-skel.heluz.cz"
+➕ [MOCK] Creating project: "selektor-skel.heluz.cz" with ID: project-1007
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "selektor-skel.heluz.cz" }
+✅ [MOCK] Project created successfully: ID project-1007
+🔍 Checking if project "MBO Optia" exists...
+🔍 [MOCK] Searching for project with name: "MBO Optia"
+❌ [MOCK] Project not found: "MBO Optia"
+➕ Creating new project: "MBO Optia"
+➕ [MOCK] Creating project: "MBO Optia" with ID: project-1008
+🔗 [MOCK] API Call: POST /api/v1/projects
+📝 [MOCK] Request body: { "name": "MBO Optia" }
+✅ [MOCK] Project created successfully: ID project-1008
+⏰ Creating 78 time records...
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-02T07:39:25.824Z
+   🕑 To: 2025-06-02T08:04:46.214Z
+   ⏱️  Duration: 0h 25m 20s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-02T07:39:25.824Z",
+     "end": "2025-06-02T08:04:46.214Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tikitio (project-1001)
+   🕐 From: 2025-06-02T10:08:42.006Z
+   🕑 To: 2025-06-02T15:45:07.604Z
+   ⏱️  Duration: 5h 36m 25s
+   📝 Description: Time tracked on tikitio
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1001",
+     "start": "2025-06-02T10:08:42.006Z",
+     "end": "2025-06-02T15:45:07.604Z",
+     "description": "Time tracked on tikitio"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tikitio (project-1001)
+   🕐 From: 2025-06-03T08:22:49.479Z
+   🕑 To: 2025-06-03T09:41:00.446Z
+   ⏱️  Duration: 1h 18m 10s
+   📝 Description: Time tracked on tikitio
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1001",
+     "start": "2025-06-03T08:22:49.479Z",
+     "end": "2025-06-03T09:41:00.446Z",
+     "description": "Time tracked on tikitio"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tikitio (project-1001)
+   🕐 From: 2025-06-03T10:01:19.827Z
+   🕑 To: 2025-06-03T14:22:54.137Z
+   ⏱️  Duration: 4h 21m 34s
+   📝 Description: Time tracked on tikitio
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1001",
+     "start": "2025-06-03T10:01:19.827Z",
+     "end": "2025-06-03T14:22:54.137Z",
+     "description": "Time tracked on tikitio"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-03T14:09:04.818Z
+   🕑 To: 2025-06-03T14:09:06.673Z
+   ⏱️  Duration: 0h 0m 1s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-03T14:09:04.818Z",
+     "end": "2025-06-03T14:09:06.673Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-04T10:18:28.438Z
+   🕑 To: 2025-06-04T10:22:54.668Z
+   ⏱️  Duration: 0h 4m 26s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-04T10:18:28.438Z",
+     "end": "2025-06-04T10:22:54.668Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-04T10:22:51.590Z
+   🕑 To: 2025-06-04T10:22:54.125Z
+   ⏱️  Duration: 0h 0m 2s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-04T10:22:51.590Z",
+     "end": "2025-06-04T10:22:54.125Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-04T10:49:07.186Z
+   🕑 To: 2025-06-04T10:49:47.812Z
+   ⏱️  Duration: 0h 0m 40s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-04T10:49:07.186Z",
+     "end": "2025-06-04T10:49:47.812Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-04T10:49:09.604Z
+   🕑 To: 2025-06-04T10:50:24.995Z
+   ⏱️  Duration: 0h 1m 15s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-04T10:49:09.604Z",
+     "end": "2025-06-04T10:50:24.995Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-04T10:53:45.932Z
+   🕑 To: 2025-06-04T12:33:39.657Z
+   ⏱️  Duration: 1h 39m 53s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-04T10:53:45.932Z",
+     "end": "2025-06-04T12:33:39.657Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-04T12:34:22.966Z
+   🕑 To: 2025-06-04T13:18:11.542Z
+   ⏱️  Duration: 0h 43m 48s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-04T12:34:22.966Z",
+     "end": "2025-06-04T13:18:11.542Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-04T12:34:47.971Z
+   🕑 To: 2025-06-04T12:39:41.060Z
+   ⏱️  Duration: 0h 4m 53s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-04T12:34:47.971Z",
+     "end": "2025-06-04T12:39:41.060Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-04T13:08:50.372Z
+   🕑 To: 2025-06-04T13:37:46.775Z
+   ⏱️  Duration: 0h 28m 56s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-04T13:08:50.372Z",
+     "end": "2025-06-04T13:37:46.775Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-04T13:26:41.829Z
+   🕑 To: 2025-06-04T14:31:38.917Z
+   ⏱️  Duration: 1h 4m 57s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-04T13:26:41.829Z",
+     "end": "2025-06-04T14:31:38.917Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-04T14:31:37.117Z
+   🕑 To: 2025-06-04T14:45:42.736Z
+   ⏱️  Duration: 0h 14m 5s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-04T14:31:37.117Z",
+     "end": "2025-06-04T14:45:42.736Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-04T14:32:14.877Z
+   🕑 To: 2025-06-04T15:13:09.456Z
+   ⏱️  Duration: 0h 40m 54s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-04T14:32:14.877Z",
+     "end": "2025-06-04T15:13:09.456Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-04T15:09:21.806Z
+   🕑 To: 2025-06-04T15:11:51.386Z
+   ⏱️  Duration: 0h 2m 29s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-04T15:09:21.806Z",
+     "end": "2025-06-04T15:11:51.386Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-04T17:16:57.945Z
+   🕑 To: 2025-06-04T17:16:57.945Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-04T17:16:57.945Z",
+     "end": "2025-06-04T17:16:57.945Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-04T17:36:40.292Z
+   🕑 To: 2025-06-04T17:39:08.400Z
+   ⏱️  Duration: 0h 2m 28s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-04T17:36:40.292Z",
+     "end": "2025-06-04T17:39:08.400Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-detailu (project-1005)
+   🕐 From: 2025-06-05T10:52:03.821Z
+   🕑 To: 2025-06-05T13:47:09.664Z
+   ⏱️  Duration: 2h 55m 5s
+   📝 Description: Time tracked on selektor-detailu
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1005",
+     "start": "2025-06-05T10:52:03.821Z",
+     "end": "2025-06-05T13:47:09.664Z",
+     "description": "Time tracked on selektor-detailu"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-05T10:56:31.012Z
+   🕑 To: 2025-06-05T10:56:31.012Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-05T10:56:31.012Z",
+     "end": "2025-06-05T10:56:31.012Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-konstrukci (project-1006)
+   🕐 From: 2025-06-05T13:50:22.751Z
+   🕑 To: 2025-06-05T14:05:20.137Z
+   ⏱️  Duration: 0h 14m 57s
+   📝 Description: Time tracked on selektor-konstrukci
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1006",
+     "start": "2025-06-05T13:50:22.751Z",
+     "end": "2025-06-05T14:05:20.137Z",
+     "description": "Time tracked on selektor-konstrukci"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-skel.heluz.cz (project-1007)
+   🕐 From: 2025-06-05T13:52:29.864Z
+   🕑 To: 2025-06-05T14:05:54.085Z
+   ⏱️  Duration: 0h 13m 24s
+   📝 Description: Time tracked on selektor-skel.heluz.cz
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1007",
+     "start": "2025-06-05T13:52:29.864Z",
+     "end": "2025-06-05T14:05:54.085Z",
+     "description": "Time tracked on selektor-skel.heluz.cz"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-detailu (project-1005)
+   🕐 From: 2025-06-05T14:06:50.999Z
+   🕑 To: 2025-06-05T14:27:19.795Z
+   ⏱️  Duration: 0h 20m 28s
+   📝 Description: Time tracked on selektor-detailu
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1005",
+     "start": "2025-06-05T14:06:50.999Z",
+     "end": "2025-06-05T14:27:19.795Z",
+     "description": "Time tracked on selektor-detailu"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-05T21:14:40.533Z
+   🕑 To: 2025-06-05T21:15:28.253Z
+   ⏱️  Duration: 0h 0m 47s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-05T21:14:40.533Z",
+     "end": "2025-06-05T21:15:28.253Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-05T21:32:17.834Z
+   🕑 To: 2025-06-05T21:48:37.186Z
+   ⏱️  Duration: 0h 16m 19s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-05T21:32:17.834Z",
+     "end": "2025-06-05T21:48:37.186Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-06T11:28:55.376Z
+   🕑 To: 2025-06-06T11:28:55.376Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-06T11:28:55.376Z",
+     "end": "2025-06-06T11:28:55.376Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-detailu (project-1005)
+   🕐 From: 2025-06-06T11:33:38.818Z
+   🕑 To: 2025-06-06T12:46:44.609Z
+   ⏱️  Duration: 1h 13m 5s
+   📝 Description: Time tracked on selektor-detailu
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1005",
+     "start": "2025-06-06T11:33:38.818Z",
+     "end": "2025-06-06T12:46:44.609Z",
+     "description": "Time tracked on selektor-detailu"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-detailu (project-1005)
+   🕐 From: 2025-06-06T13:06:41.641Z
+   🕑 To: 2025-06-06T14:31:31.632Z
+   ⏱️  Duration: 1h 24m 49s
+   📝 Description: Time tracked on selektor-detailu
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1005",
+     "start": "2025-06-06T13:06:41.641Z",
+     "end": "2025-06-06T14:31:31.632Z",
+     "description": "Time tracked on selektor-detailu"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-detailu (project-1005)
+   🕐 From: 2025-06-07T14:00:48.257Z
+   🕑 To: 2025-06-07T15:49:41.132Z
+   ⏱️  Duration: 1h 48m 52s
+   📝 Description: Time tracked on selektor-detailu
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1005",
+     "start": "2025-06-07T14:00:48.257Z",
+     "end": "2025-06-07T15:49:41.132Z",
+     "description": "Time tracked on selektor-detailu"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-07T15:49:53.295Z
+   🕑 To: 2025-06-07T15:52:19.669Z
+   ⏱️  Duration: 0h 2m 26s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-07T15:49:53.295Z",
+     "end": "2025-06-07T15:52:19.669Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-07T16:45:21.618Z
+   🕑 To: 2025-06-07T16:52:37.419Z
+   ⏱️  Duration: 0h 7m 15s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-07T16:45:21.618Z",
+     "end": "2025-06-07T16:52:37.419Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-07T18:18:39.593Z
+   🕑 To: 2025-06-07T18:18:39.593Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-07T18:18:39.593Z",
+     "end": "2025-06-07T18:18:39.593Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-07T18:42:51.113Z
+   🕑 To: 2025-06-07T21:18:04.081Z
+   ⏱️  Duration: 2h 35m 12s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-07T18:42:51.113Z",
+     "end": "2025-06-07T21:18:04.081Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tikitio (project-1001)
+   🕐 From: 2025-06-07T19:13:04.864Z
+   🕑 To: 2025-06-07T19:13:04.864Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on tikitio
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1001",
+     "start": "2025-06-07T19:13:04.864Z",
+     "end": "2025-06-07T19:13:04.864Z",
+     "description": "Time tracked on tikitio"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-07T20:36:14.874Z
+   🕑 To: 2025-06-07T20:38:35.859Z
+   ⏱️  Duration: 0h 2m 20s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-07T20:36:14.874Z",
+     "end": "2025-06-07T20:38:35.859Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-08T09:47:52.910Z
+   🕑 To: 2025-06-08T10:10:31.313Z
+   ⏱️  Duration: 0h 22m 38s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-08T09:47:52.910Z",
+     "end": "2025-06-08T10:10:31.313Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-08T10:19:59.011Z
+   🕑 To: 2025-06-08T10:20:01.736Z
+   ⏱️  Duration: 0h 0m 2s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-08T10:19:59.011Z",
+     "end": "2025-06-08T10:20:01.736Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-08T10:26:18.571Z
+   🕑 To: 2025-06-08T10:41:01.521Z
+   ⏱️  Duration: 0h 14m 42s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-08T10:26:18.571Z",
+     "end": "2025-06-08T10:41:01.521Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-08T12:10:27.689Z
+   🕑 To: 2025-06-08T13:43:42.966Z
+   ⏱️  Duration: 1h 33m 15s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-08T12:10:27.689Z",
+     "end": "2025-06-08T13:43:42.966Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-08T16:50:37.461Z
+   🕑 To: 2025-06-08T18:52:17.639Z
+   ⏱️  Duration: 2h 1m 40s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-08T16:50:37.461Z",
+     "end": "2025-06-08T18:52:17.639Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-09T08:02:16.287Z
+   🕑 To: 2025-06-09T08:02:16.750Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-09T08:02:16.287Z",
+     "end": "2025-06-09T08:02:16.750Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-09T08:04:07.164Z
+   🕑 To: 2025-06-09T08:04:07.164Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-09T08:04:07.164Z",
+     "end": "2025-06-09T08:04:07.164Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-09T08:04:41.670Z
+   🕑 To: 2025-06-09T08:53:57.934Z
+   ⏱️  Duration: 0h 49m 16s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-09T08:04:41.670Z",
+     "end": "2025-06-09T08:53:57.934Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-09T08:24:09.100Z
+   🕑 To: 2025-06-09T08:24:09.100Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-09T08:24:09.100Z",
+     "end": "2025-06-09T08:24:09.100Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-09T09:50:21.448Z
+   🕑 To: 2025-06-09T10:12:09.488Z
+   ⏱️  Duration: 0h 21m 48s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-09T09:50:21.448Z",
+     "end": "2025-06-09T10:12:09.488Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-09T10:07:31.310Z
+   🕑 To: 2025-06-09T10:08:57.239Z
+   ⏱️  Duration: 0h 1m 25s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-09T10:07:31.310Z",
+     "end": "2025-06-09T10:08:57.239Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-09T10:09:15.280Z
+   🕑 To: 2025-06-09T10:12:18.309Z
+   ⏱️  Duration: 0h 3m 3s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-09T10:09:15.280Z",
+     "end": "2025-06-09T10:12:18.309Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-09T10:27:25.951Z
+   🕑 To: 2025-06-09T10:27:25.951Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-09T10:27:25.951Z",
+     "end": "2025-06-09T10:27:25.951Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-09T10:41:41.213Z
+   🕑 To: 2025-06-09T10:41:41.213Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-09T10:41:41.213Z",
+     "end": "2025-06-09T10:41:41.213Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-09T11:12:11.721Z
+   🕑 To: 2025-06-09T11:57:08.882Z
+   ⏱️  Duration: 0h 44m 57s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-09T11:12:11.721Z",
+     "end": "2025-06-09T11:57:08.882Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-09T11:12:21.491Z
+   🕑 To: 2025-06-09T11:43:12.584Z
+   ⏱️  Duration: 0h 30m 51s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-09T11:12:21.491Z",
+     "end": "2025-06-09T11:43:12.584Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: selektor-detailu (project-1005)
+   🕐 From: 2025-06-09T11:18:50.994Z
+   🕑 To: 2025-06-09T11:21:21.638Z
+   ⏱️  Duration: 0h 2m 30s
+   📝 Description: Time tracked on selektor-detailu
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1005",
+     "start": "2025-06-09T11:18:50.994Z",
+     "end": "2025-06-09T11:21:21.638Z",
+     "description": "Time tracked on selektor-detailu"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-09T11:19:09.434Z
+   🕑 To: 2025-06-09T11:29:12.079Z
+   ⏱️  Duration: 0h 10m 2s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-09T11:19:09.434Z",
+     "end": "2025-06-09T11:29:12.079Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-09T11:31:18.472Z
+   🕑 To: 2025-06-09T11:31:45.670Z
+   ⏱️  Duration: 0h 0m 27s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-09T11:31:18.472Z",
+     "end": "2025-06-09T11:31:45.670Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-09T11:59:25.698Z
+   🕑 To: 2025-06-09T11:59:25.698Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-09T11:59:25.698Z",
+     "end": "2025-06-09T11:59:25.698Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-09T12:00:07.243Z
+   🕑 To: 2025-06-09T16:43:36.981Z
+   ⏱️  Duration: 4h 43m 29s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-09T12:00:07.243Z",
+     "end": "2025-06-09T16:43:36.981Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-09T12:41:17.081Z
+   🕑 To: 2025-06-09T12:41:19.819Z
+   ⏱️  Duration: 0h 0m 2s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-09T12:41:17.081Z",
+     "end": "2025-06-09T12:41:19.819Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-10T13:12:32.855Z
+   🕑 To: 2025-06-10T13:40:16.451Z
+   ⏱️  Duration: 0h 27m 43s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-10T13:12:32.855Z",
+     "end": "2025-06-10T13:40:16.451Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-10T14:10:56.979Z
+   🕑 To: 2025-06-10T14:10:56.979Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-10T14:10:56.979Z",
+     "end": "2025-06-10T14:10:56.979Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: tenantry (project-1003)
+   🕐 From: 2025-06-10T14:11:50.655Z
+   🕑 To: 2025-06-10T14:17:57.104Z
+   ⏱️  Duration: 0h 6m 6s
+   📝 Description: Time tracked on tenantry
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1003",
+     "start": "2025-06-10T14:11:50.655Z",
+     "end": "2025-06-10T14:17:57.104Z",
+     "description": "Time tracked on tenantry"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-10T16:12:24.861Z
+   🕑 To: 2025-06-10T16:33:17.291Z
+   ⏱️  Duration: 0h 20m 52s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-10T16:12:24.861Z",
+     "end": "2025-06-10T16:33:17.291Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-11T08:19:28.054Z
+   🕑 To: 2025-06-11T09:25:48.000Z
+   ⏱️  Duration: 1h 6m 19s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-11T08:19:28.054Z",
+     "end": "2025-06-11T09:25:48.000Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-11T11:47:14.482Z
+   🕑 To: 2025-06-11T13:10:44.501Z
+   ⏱️  Duration: 1h 23m 30s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-11T11:47:14.482Z",
+     "end": "2025-06-11T13:10:44.501Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-11T14:36:45.224Z
+   🕑 To: 2025-06-11T14:43:18.462Z
+   ⏱️  Duration: 0h 6m 33s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-11T14:36:45.224Z",
+     "end": "2025-06-11T14:43:18.462Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: MBO Optia (project-1008)
+   🕐 From: 2025-06-12T10:30:02.019Z
+   🕑 To: 2025-06-12T12:46:21.717Z
+   ⏱️  Duration: 2h 16m 19s
+   📝 Description: Time tracked on MBO Optia
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1008",
+     "start": "2025-06-12T10:30:02.019Z",
+     "end": "2025-06-12T12:46:21.717Z",
+     "description": "Time tracked on MBO Optia"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-12T11:23:00.405Z
+   🕑 To: 2025-06-12T11:28:05.327Z
+   ⏱️  Duration: 0h 5m 4s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-12T11:23:00.405Z",
+     "end": "2025-06-12T11:28:05.327Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: MBO Optia (project-1008)
+   🕐 From: 2025-06-12T13:35:56.726Z
+   🕑 To: 2025-06-12T14:54:56.797Z
+   ⏱️  Duration: 1h 19m 0s
+   📝 Description: Time tracked on MBO Optia
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1008",
+     "start": "2025-06-12T13:35:56.726Z",
+     "end": "2025-06-12T14:54:56.797Z",
+     "description": "Time tracked on MBO Optia"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: MBO Optia (project-1008)
+   🕐 From: 2025-06-15T16:40:51.470Z
+   🕑 To: 2025-06-15T16:40:53.213Z
+   ⏱️  Duration: 0h 0m 1s
+   📝 Description: Time tracked on MBO Optia
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1008",
+     "start": "2025-06-15T16:40:51.470Z",
+     "end": "2025-06-15T16:40:53.213Z",
+     "description": "Time tracked on MBO Optia"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-15T16:51:30.757Z
+   🕑 To: 2025-06-15T18:15:48.693Z
+   ⏱️  Duration: 1h 24m 17s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-15T16:51:30.757Z",
+     "end": "2025-06-15T18:15:48.693Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-15T18:34:30.739Z
+   🕑 To: 2025-06-15T19:07:21.534Z
+   ⏱️  Duration: 0h 32m 50s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-15T18:34:30.739Z",
+     "end": "2025-06-15T19:07:21.534Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: MBO Optia (project-1008)
+   🕐 From: 2025-06-15T19:09:20.834Z
+   🕑 To: 2025-06-15T19:09:20.834Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on MBO Optia
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1008",
+     "start": "2025-06-15T19:09:20.834Z",
+     "end": "2025-06-15T19:09:20.834Z",
+     "description": "Time tracked on MBO Optia"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-15T19:09:40.715Z
+   🕑 To: 2025-06-15T19:27:49.023Z
+   ⏱️  Duration: 0h 18m 8s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-15T19:09:40.715Z",
+     "end": "2025-06-15T19:27:49.023Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-15T19:59:22.369Z
+   🕑 To: 2025-06-15T20:22:15.995Z
+   ⏱️  Duration: 0h 22m 53s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-15T19:59:22.369Z",
+     "end": "2025-06-15T20:22:15.995Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-15T20:24:00.140Z
+   🕑 To: 2025-06-15T20:24:00.140Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-15T20:24:00.140Z",
+     "end": "2025-06-15T20:24:00.140Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bunner (project-1002)
+   🕐 From: 2025-06-15T20:25:09.201Z
+   🕑 To: 2025-06-15T21:58:25.094Z
+   ⏱️  Duration: 1h 33m 15s
+   📝 Description: Time tracked on bunner
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1002",
+     "start": "2025-06-15T20:25:09.201Z",
+     "end": "2025-06-15T21:58:25.094Z",
+     "description": "Time tracked on bunner"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: bash-utils (project-1004)
+   🕐 From: 2025-06-15T21:03:26.513Z
+   🕑 To: 2025-06-15T21:03:26.513Z
+   ⏱️  Duration: 0h 0m 0s
+   📝 Description: Time tracked on bash-utils
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1004",
+     "start": "2025-06-15T21:03:26.513Z",
+     "end": "2025-06-15T21:03:26.513Z",
+     "description": "Time tracked on bash-utils"
+   }
+✅ [MOCK] Time record created successfully
+⏰ [MOCK] Creating time record:
+   📁 Project: .wakapi (project-1000)
+   🕐 From: 2025-06-15T21:22:48.910Z
+   🕑 To: 2025-06-15T22:28:00.088Z
+   ⏱️  Duration: 1h 5m 11s
+   📝 Description: Time tracked on .wakapi
+🔗 [MOCK] API Call: POST /api/v1/time-entries
+📝 [MOCK] Request body: {
+     "project_id": "project-1000",
+     "start": "2025-06-15T21:22:48.910Z",
+     "end": "2025-06-15T22:28:00.088Z",
+     "description": "Time tracked on .wakapi"
+   }
+✅ [MOCK] Time record created successfully
+✅ Processing complete! 78 records created successfully, 0 errors
+
+🎉 Export completed successfully!
+ℹ️  This was a dry run - no actual changes were made to Solidtime.

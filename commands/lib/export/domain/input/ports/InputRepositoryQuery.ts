@@ -1,15 +1,12 @@
-import InputProject from './InputProject';
-import InputRecord from './InputRecord';
+import Project from '../../common/ports/Project';
 import { Result } from '../../../utils/type-utils';
+import TimeRecord from '../../common/ports/TimeRecord';
 
 export interface InputRepositoryQuery {
-    getProjects(range: {
-        from: Date;
-        to: Date;
-    }): Promise<Result<InputProject[]>>;
+    getProjects(range: { from: Date; to: Date }): Promise<Result<Project[]>>;
 
-    getRecordsForProject<P extends InputProject = InputProject>(
-        project: P,
+    getRecordsForProject(
+        project: Project,
         range: { from: Date; to: Date },
-    ): Promise<Result<InputRecord<P>[]>>;
+    ): Promise<Result<TimeRecord[]>>;
 }

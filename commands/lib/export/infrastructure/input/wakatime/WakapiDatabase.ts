@@ -1,9 +1,9 @@
 import { Database } from 'bun:sqlite';
 import { InputRepositoryQuery } from '../../../domain/input/ports/InputRepositoryQuery';
 import { Result } from '../../../utils/type-utils';
-import InputProject from '../../../domain/input/ports/InputProject';
+import Project from '../../../domain/common/ports/Project';
 import WakapiProject from './WakapiProject';
-import InputRecord from '../../../domain/input/ports/InputRecord';
+import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import WakapiRecord from './WakapiRecord';
 
 interface ProjectRow {
@@ -40,7 +40,7 @@ export class WakapiDatabase implements InputRepositoryQuery {
     public async getProjects(range: {
         from: Date;
         to: Date;
-    }): Promise<Result<InputProject[]>> {
+    }): Promise<Result<Project[]>> {
         try {
             // Convert dates to ISO strings for SQLite query
             const fromStr = range.from
@@ -128,10 +128,10 @@ export class WakapiDatabase implements InputRepositoryQuery {
         }
     }
 
-    getRecordsForProject<P extends InputProject = InputProject>(
-        project: P,
+    getRecordsForProject(
+        project: Project,
         range: { from: Date; to: Date },
-    ): Promise<Result<InputRecord<P>[]>> {
+    ): Promise<Result<TimeRecord[]>> {
         try {
             // Convert dates to ISO strings for SQLite query
             const fromStr = range.from
@@ -194,10 +194,10 @@ export class WakapiDatabase implements InputRepositoryQuery {
             const rows = statement.all(
                 fromStr,
                 toStr,
-                project.getUID(),
+                project.getIdentifier(),
             ) as TimeFrameRow[];
 
-            const records: InputRecord<P>[] = rows.map((row) => ({
+            const records: TimeRecord[] = rows.map((row) => ({
                 from: new Date(row.start_time),
                 to: new Date(row.end_time),
                 project: project,
@@ -207,7 +207,7 @@ export class WakapiDatabase implements InputRepositoryQuery {
         } catch (error) {
             return Promise.resolve(
                 Result.error(
-                    `Failed to get records for project ${project.getUID()}: ${
+                    `Failed to get records for project ${project.getIdentifier()}: ${
                         error instanceof Error ? error.message : String(error)
                     }`,
                 ),

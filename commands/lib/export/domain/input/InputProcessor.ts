@@ -1,7 +1,7 @@
 import { InputRepositoryQuery } from './ports/InputRepositoryQuery';
-import InputReport from './ports/InputReport';
-import InputRecord from './ports/InputRecord';
 import { Result } from '../../utils/type-utils';
+import Report from '../common/ports/Report';
+import TimeRecord from '../common/ports/TimeRecord';
 
 export default class InputProcessor {
     private constructor(
@@ -22,7 +22,7 @@ export default class InputProcessor {
     }: {
         from: Date;
         to: Date;
-    }): Promise<Result<InputReport>> {
+    }): Promise<Result<Report>> {
         return Result.ensure(async () => {
             const projectsResult = await Result.asyncAssert(
                 this._inputRepositoryQuery.getProjects({
@@ -33,7 +33,7 @@ export default class InputProcessor {
 
             console.log('projectsResult', projectsResult);
 
-            const allRecords: InputRecord[] = [];
+            const allRecords: TimeRecord[] = [];
             for (const project of projectsResult) {
                 const records = await Result.asyncAssert(
                     this._inputRepositoryQuery.getRecordsForProject(project, {

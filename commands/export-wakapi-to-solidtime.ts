@@ -1,5 +1,4 @@
 import { defineCommand, log } from 'bunner/framework';
-import { InputRepositoryQuery } from './lib/export/domain/input/ports/InputRepositoryQuery';
 import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
 import SolidtimeApiConnectionConfiguration from './lib/export/infrastructure/output/solid-time/SolidtimeApiConnectionConfiguration';
 import { Result } from './lib/export/utils/type-utils';
@@ -8,6 +7,7 @@ import SolidtimeRepositoryQueryMock from './lib/export/infrastructure/output/sol
 import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';
 import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
 import InputProcessor from './lib/export/domain/input/InputProcessor';
+import OutputProcessor from './lib/export/domain/output/OutputProcessor';
 
 export default defineCommand({
     command: 'export-wakapi-to-solidtime',
@@ -64,10 +64,9 @@ export default defineCommand({
         },
     ] as const,
     action: async ({ options }) => {
-        const inputRepositoryQuery: InputRepositoryQuery =
-            WakapiDatabase.create({
-                wakapiDbPath: options['wakapi-db-file'],
-            }).assert();
+        const inputRepositoryQuery = WakapiDatabase.create({
+            wakapiDbPath: options['wakapi-db-file'],
+        }).assert();
 
         const solidTimeApiConnectionConfiguration =
             SolidtimeApiConnectionConfiguration.create({
@@ -100,11 +99,33 @@ export default defineCommand({
             inputRepositoryQuery,
         }).assert();
 
-        const report = await inputProcessor.generateReport({
-            from: new Date(options['from']),
-            to: new Date(options['to']),
-        });
+        const outputProcessor = OutputProcessor.create({
+            outputRepositoryQuery,
+            outputRepositoryMutator,
+        }).assert();
 
-        console.log(report);
+        log.info('🚀 Starting Wakapi to Solidtime export...\n');
+
+        log.info('📖 Step 1: Reading data from Wakapi database...');
+        const report = await Result.asyncAssert(
+            inputProcessor.generateReport({
+                from: new Date(options['from']),
+                to: new Date(options['to']),
+            }),
+        );
+        log.info(
+            `✅ Input report generated: ${report.records.length} records found\n`,
+        );
+
+        // Step 2: Process report with the output record processor
+        log.info('🔄 Step 2: Processing records for Solidtime...');
+        await Result.asyncAssert(outputProcessor.processReport(report));
+
+        log.info('\n🎉 Export completed successfully!');
+        if (options['dry-run']) {
+            console.log(
+                'ℹ️  This was a dry run - no actual changes were made to Solidtime.',
+            );
+        }
     },
 });

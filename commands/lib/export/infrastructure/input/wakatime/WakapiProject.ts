@@ -1,14 +1,14 @@
-import InputProject from '../../../domain/input/ports/InputProject.js';
+import Project from '../../../domain/common/ports/Project.js';
 import { Result } from '../../../utils/type-utils.js';
 
-export default class WakapiProject implements InputProject {
+export default class WakapiProject implements Project {
     private constructor(private readonly _name: string) {}
 
     static create(name: string) {
         return new WakapiProject(name);
     }
 
-    getUID(): string {
+    getIdentifier(): string {
         return this._name;
     }
 

@@ -1,5 +1,5 @@
-import InputProject from '../domain/input/ports/InputProject';
-import InputRecord from '../domain/input/ports/InputRecord';
+import Project from '../domain/common/ports/Project';
+import TimeRecord from '../domain/common/ports/TimeRecord';
 
 export class UnexpectedError extends Error {
     private constructor(public readonly data: unknown) {

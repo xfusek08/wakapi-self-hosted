@@ -1,7 +1,7 @@
-import InputRecord from '../../../domain/input/ports/InputRecord';
+import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import WakapiProject from './WakapiProject';
 
-export default class WakapiRecord implements InputRecord<WakapiProject> {
+export default class WakapiRecord implements TimeRecord {
     private constructor(
         public readonly from: Date,
         public readonly to: Date,
