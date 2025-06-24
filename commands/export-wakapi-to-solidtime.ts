@@ -1,13 +1,13 @@
 import { defineCommand, log } from 'bunner/framework';
-
-import { match } from 'export/utils/type-utils';
-import { WakapiDatabase } from 'export/infrastructure/wakatime/WakapiDatabase';
-import SolidtimeRepositoryQueryMock from 'export/infrastructure/solid-time/SolidtimeRepositoryQueryMock';
-import SolidtimeRepositoryQuery from 'export/infrastructure/solid-time/SolidtimeRepositoryQuery';
-import SolidtimeApiConnectionConfiguration from 'export/infrastructure/solid-time/SolidtimeApiConnectionConfiguration';
-import { InputRepositoryQuery } from 'export/domain/input/InputRepositoryQuery';
-import SolidtimeRepositoryMutatorMock from 'export/infrastructure/solid-time/SolidtimeRepositoryMutatorMock';
-import SolidtimeRepositoryMutator from 'export/infrastructure/solid-time/SolidtimeRepositoryMutator';
+import { InputRepositoryQuery } from './lib/export/domain/input/ports/InputRepositoryQuery';
+import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
+import SolidtimeApiConnectionConfiguration from './lib/export/infrastructure/output/solid-time/SolidtimeApiConnectionConfiguration';
+import { Result } from './lib/export/utils/type-utils';
+import SolidtimeRepositoryQuery from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQuery';
+import SolidtimeRepositoryQueryMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQueryMock';
+import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';
+import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
+import InputProcessor from './lib/export/domain/input/InputProcessor';
 
 export default defineCommand({
     command: 'export-wakapi-to-solidtime',
@@ -40,7 +40,7 @@ export default defineCommand({
             long: 'wakapi-db-file',
             short: 'f',
             description: 'Path to the Wakapi database file to export from',
-            type: 'string',
+            type: 'path',
             required: true,
         },
         {
@@ -67,7 +67,7 @@ export default defineCommand({
         const inputRepositoryQuery: InputRepositoryQuery =
             WakapiDatabase.create({
                 wakapiDbPath: options['wakapi-db-file'],
-            }).unwrap();
+            }).assert();
 
         const solidTimeApiConnectionConfiguration =
             SolidtimeApiConnectionConfiguration.create({
@@ -76,7 +76,7 @@ export default defineCommand({
                 organizationId: options['solidtime-organization-id'],
             });
 
-        const outputRepositoryQuery = match(
+        const outputRepositoryQuery = Result.match(
             solidTimeApiConnectionConfiguration,
             {
                 ok: (configuration) =>
@@ -88,28 +88,23 @@ export default defineCommand({
                     return SolidtimeRepositoryQueryMock.create();
                 },
             },
-        ).unwrap();
+        ).assert();
 
         const outputRepositoryMutator = options['dry-run']
-            ? SolidtimeRepositoryMutatorMock.create().unwrap()
+            ? SolidtimeRepositoryMutatorMock.create().assert()
             : SolidtimeRepositoryMutator.create({
-                  configuration: solidTimeApiConnectionConfiguration.unwrap(),
-              }).unwrap();
+                  configuration: solidTimeApiConnectionConfiguration.assert(),
+              }).assert();
 
-        const inputReport = (
-            await inputRepositoryQuery.generateReport({
-                from: new Date(options['from']),
-                to: new Date(options['to']),
-            })
-        ).unwrap();
+        const inputProcessor = InputProcessor.create({
+            inputRepositoryQuery,
+        }).assert();
 
-        const exporter = Exporter.create({
-            outputRepositoryQuery,
-            outputRepositoryMutator,
-        }).unwrap();
-
-        await exporter.exportRecords({
-            inputTimeRecords,
+        const report = await inputProcessor.generateReport({
+            from: new Date(options['from']),
+            to: new Date(options['to']),
         });
+
+        console.log(report);
     },
 });

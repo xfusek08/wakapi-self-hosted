@@ -1,0 +1,59 @@
+#compdef _run run
+
+_run() {
+    _arguments -C \
+        "1: :->command" \
+        "*:: :->args" && return 0
+
+    case "$state" in
+        command)
+            local -a commands=(
+                'export-wakapi-to-solidtime:Exports time tracking data from Wakapi SQLite database to Solidtime using the REST API'
+                'bunner-install-completions:Installs ZSH completions for a specific run file'
+                'bunner-sh:Runs shell in bun container for script development purposes'
+                'bunner-completions:Generates ZSH completions for dynamic completion script'
+                'bunner-init:Sets up the given directory for a development of bunner scripts'
+                'help:Prints help message for this run script'
+            )
+            _describe "command" commands
+            ;;
+        args)
+            case "$words[1]" in
+                export-wakapi-to-solidtime)
+                    _arguments -A "-*" \
+                        "(-s --solidtime-url)"{-s,--solidtime-url}"[URL of the Solidtime instance to export data to]:solidtime-url text:" \
+                        "(-k --solidtime-key)"{-k,--solidtime-key}"[API key for the Solidtime instance]:solidtime-key text:" \
+                        "(-o --solidtime-organization-id)"{-o,--solidtime-organization-id}"[ID of the Solidtime organization to export data to]:solidtime-organization-id text:" \
+                        "(-f --wakapi-db-file)"{-f,--wakapi-db-file}"[Path to the Wakapi database file to export from (required)]:wakapi-db-file text:" \
+                        "--from[Start date for the export in YYYY-MM-DD format (required)]:from text:" \
+                        "--to[End date for the export in YYYY-MM-DD format (required)]:to text:" \
+                        "(-d --dry-run)"{-d,--dry-run}"[Run the command without making any changes]"
+                        "*:: :_files"
+                    ;;
+                bunner-install-completions)
+                    _files
+                    ;;
+                bunner-sh)
+                    _files
+                    ;;
+                bunner-completions)
+                    _files
+                    ;;
+                bunner-init)
+                    _arguments -A "-*" \
+                        "(-D --directory)"{-D,--directory}"[Directory to initialize (required)]:directory text:" \
+                        "(-i --install)"{-i,--install}"[Install dependencies for bunner scripts development]"
+                        "*:: :_files"
+                    ;;
+                help)
+                    _arguments -A "-*" \
+                        "(-a --all)"{-a,--all}"[Show all commands, including hidden ones form the bunner framework]"
+                        "*:: :_files"
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+_run "$@"
+

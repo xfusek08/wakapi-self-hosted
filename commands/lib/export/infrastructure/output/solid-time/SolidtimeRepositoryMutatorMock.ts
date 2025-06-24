@@ -1,5 +1,5 @@
 import { Result } from 'export/utils/type-utils';
-import { OutputRepositoryMutator } from 'export/domain/output/OutputRepositoryMutator';
+import { OutputRepositoryMutator } from 'export/domain/output/ports/OutputRepositoryMutator';
 
 export default class SolidtimeRepositoryMutatorMock
     implements OutputRepositoryMutator

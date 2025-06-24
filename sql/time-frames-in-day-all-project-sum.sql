@@ -1,4 +1,4 @@
--- database: ./wakapi.db
+-- database: ../data/wakapi.db
 WITH
     heartbeats_with_gap AS (
         SELECT
@@ -21,8 +21,8 @@ WITH
         FROM
             heartbeats
         WHERE
-            time > '2025-06-05'
-            AND time < '2025-06-06'
+            time > '2025-06-12'
+            AND time < '2025-06-13'
     ),
     grouped_heartbeats AS (
         SELECT

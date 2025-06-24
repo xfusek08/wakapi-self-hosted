@@ -1,10 +1,8 @@
+import { OutputRepositoryQuery } from 'export/domain/output/ports/OutputRepositoryQuery';
 import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
 import { Result } from 'export/utils/type-utils';
-import { OutputRepositoryMutator } from 'export/domain/output/OutputRepositoryMutator';
 
-export default class SolidtimeRepositoryMutator
-    implements OutputRepositoryMutator
-{
+export default class SolidtimeRepositoryQuery implements OutputRepositoryQuery {
     private constructor(
         private readonly _configuration: SolidtimeApiConnectionConfiguration,
     ) {}
@@ -13,7 +11,7 @@ export default class SolidtimeRepositoryMutator
         configuration,
     }: {
         configuration: SolidtimeApiConnectionConfiguration;
-    }): Result<SolidtimeRepositoryMutator> {
-        return Result.ok(new SolidtimeRepositoryMutator(configuration));
+    }): Result<SolidtimeRepositoryQuery> {
+        return Result.ok(new SolidtimeRepositoryQuery(configuration));
     }
 }

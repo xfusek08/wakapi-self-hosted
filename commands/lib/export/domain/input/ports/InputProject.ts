@@ -1,3 +1,3 @@
 export default interface InputProject {
-    name: string;
+    getUID(): string;
 }

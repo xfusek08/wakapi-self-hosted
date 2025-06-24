@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext"],
+        "declaration": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "paths": {
+            "bunner/*": ["/home/petr/.wakapi/bunner/*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}
