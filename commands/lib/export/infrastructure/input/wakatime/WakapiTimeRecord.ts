@@ -3,7 +3,7 @@ import { ArkErrors, type } from 'arktype';
 import TimeRange from '../../../domain/common/ports/TimeRange.js';
 import TimeRecord from '../../../domain/common/ports/TimeRecord.js';
 import { Result } from '../../../domain/utils/type-utils.js';
-import SqliteDateString from '../../common/arktype/SqliteDateString.js';
+import DateString from '../../common/arktype/DateString.js';
 import WakapiProject from './WakapiProject.js';
 
 export default class WakapiTimeRecord implements TimeRecord {
@@ -24,8 +24,8 @@ export default class WakapiTimeRecord implements TimeRecord {
 
     static parse(data: unknown): Result<WakapiTimeRecord> {
         const parsed = type({
-            start_time: SqliteDateString,
-            end_time: SqliteDateString,
+            start_time: DateString,
+            end_time: DateString,
             project: type.string.pipe((name) => WakapiProject.create(name)),
         })(data);
 

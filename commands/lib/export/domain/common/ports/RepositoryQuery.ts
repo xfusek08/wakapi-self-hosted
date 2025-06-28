@@ -4,7 +4,7 @@ import TimeRange from './TimeRange';
 import TimeRecord from './TimeRecord';
 
 export interface RepositoryQuery<P extends Project = Project> {
-    getProjects(timeRange: TimeRange): Promise<Result<P[]>>;
+    getProjects(): Promise<Result<P[]>>;
 
     getRecordsForProject({
         project,

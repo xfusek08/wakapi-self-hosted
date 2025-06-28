@@ -2,26 +2,25 @@ import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
 import TimeRange from '../../../domain/common/ports/TimeRange';
 import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import { Result } from '../../../domain/utils/type-utils';
-import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
-import SolidTimeProject from './SolidTimeProject';
+import SolidtimeApi from './SolidtimeApi';
+import { SolidTimeProject } from './SolidTimeProject';
 
 export default class SolidtimeRepositoryQuery
     implements RepositoryQuery<SolidTimeProject>
 {
-    private constructor(
-        private readonly _configuration: SolidtimeApiConnectionConfiguration,
-    ) {}
+    private constructor(private readonly _api: SolidtimeApi) {}
 
     static create(
-        configuration: SolidtimeApiConnectionConfiguration,
+        configuration: SolidtimeApi,
     ): Result<SolidtimeRepositoryQuery> {
         return Result.ok(new SolidtimeRepositoryQuery(configuration));
     }
 
-    getProjects(timeRange: TimeRange): Promise<Result<SolidTimeProject[]>> {
-        throw new Error(
-            'Method not implemented. Use getProjectsForTimeRange instead.',
-        );
+    async getProjects(): Promise<Result<SolidTimeProject[]>> {
+        return Result.ensure(async () => {
+            const response = await this._api.getProjects();
+            return response.assert().data;
+        });
     }
 
     getRecordsForProject({
@@ -31,8 +30,22 @@ export default class SolidtimeRepositoryQuery
         project: SolidTimeProject;
         timeRange: TimeRange;
     }): Promise<Result<TimeRecord[]>> {
-        throw new Error(
-            'Method not implemented. Use getRecordsForProjectForTimeRange instead.',
-        );
+        return Result.ensure(async () => {
+            const timeEntries = await Result.asyncAssert(
+                this._api.getTimeEntries({
+                    timeRange,
+                    project,
+                }),
+            );
+
+            return timeEntries.data.map((e) => ({
+                ...e,
+                timeRange: TimeRange.create({
+                    from: e.start,
+                    to: e.end,
+                }),
+                project,
+            }));
+        });
     }
 }

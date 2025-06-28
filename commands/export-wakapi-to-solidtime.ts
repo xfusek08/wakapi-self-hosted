@@ -5,11 +5,10 @@ import InputProcessor from './lib/export/domain/input/InputProcessor';
 import OutputProcessor from './lib/export/domain/output/OutputProcessor';
 import { Result } from './lib/export/domain/utils/type-utils';
 import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
-import SolidtimeApiConnectionConfiguration from './lib/export/infrastructure/output/solid-time/SolidtimeApiConnectionConfiguration';
+import SolidtimeApi from './lib/export/infrastructure/output/solid-time/SolidtimeApi';
 import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
 import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';
 import SolidtimeRepositoryQuery from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQuery';
-import SolidtimeRepositoryQueryMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQueryMock';
 
 export default defineCommand({
     command: 'export-wakapi-to-solidtime',
@@ -72,32 +71,18 @@ export default defineCommand({
             wakapiDbPath: options['wakapi-db-file'],
         }).assert();
 
-        const solidTimeApiConnectionConfiguration =
-            SolidtimeApiConnectionConfiguration.create({
-                solidtimeUrl: options['solidtime-url'],
-                solidtimeApiKey: options['solidtime-key'],
-                organizationId: options['solidtime-organization-id'],
-            });
+        const solidTimeApi = SolidtimeApi.create({
+            solidtimeUrl: options['solidtime-url'],
+            solidtimeApiKey: options['solidtime-key'],
+            organizationId: options['solidtime-organization-id'],
+        }).assert();
 
-        const outputRepositoryQuery = Result.match(
-            solidTimeApiConnectionConfiguration,
-            {
-                ok: (configuration) =>
-                    SolidtimeRepositoryQuery.create(configuration),
-                err: (error) => {
-                    if (!options['dry-run']) {
-                        return Result.error(error);
-                    }
-                    return SolidtimeRepositoryQueryMock.create();
-                },
-            },
-        ).assert();
+        const outputRepositoryQuery =
+            SolidtimeRepositoryQuery.create(solidTimeApi).assert();
 
         const outputRepositoryMutator = options['dry-run']
             ? SolidtimeRepositoryMutatorMock.create().assert()
-            : SolidtimeRepositoryMutator.create({
-                  configuration: solidTimeApiConnectionConfiguration.assert(),
-              }).assert();
+            : SolidtimeRepositoryMutator.create(solidTimeApi).assert();
 
         const inputProcessor = InputProcessor.create({
             inputRepositoryQuery,

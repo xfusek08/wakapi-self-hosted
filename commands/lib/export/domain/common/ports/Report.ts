@@ -11,7 +11,7 @@ export default interface Report {
 export function reportPrintToString(report: Report): string {
     const tb = new TextBuilder();
     tb.line(
-        `Input reports in range: ${report.timeRange.asFormattedDateRangeString()}:`,
+        `Reports in range: ${report.timeRange.asFormattedDateRangeString()}:`,
     );
     tb.line();
     tb.indent();

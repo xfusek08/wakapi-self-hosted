@@ -2,21 +2,15 @@ import Project from '../../../domain/common/ports/Project';
 import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import { OutputRepositoryMutator } from '../../../domain/output/ports/OutputRepositoryMutator';
 import { Result } from '../../../domain/utils/type-utils';
-import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
+import SolidtimeApi from './SolidtimeApi';
 
 export default class SolidtimeRepositoryMutator
     implements OutputRepositoryMutator
 {
-    private constructor(
-        private readonly _configuration: SolidtimeApiConnectionConfiguration,
-    ) {}
+    private constructor(private readonly _api: SolidtimeApi) {}
 
-    static create({
-        configuration,
-    }: {
-        configuration: SolidtimeApiConnectionConfiguration;
-    }): Result<SolidtimeRepositoryMutator> {
-        return Result.ok(new SolidtimeRepositoryMutator(configuration));
+    static create(api: SolidtimeApi): Result<SolidtimeRepositoryMutator> {
+        return Result.ok(new SolidtimeRepositoryMutator(api));
     }
 
     async pushProject(name: string): Promise<Result<Project>> {

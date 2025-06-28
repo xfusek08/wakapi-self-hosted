@@ -3,15 +3,18 @@ import roundDateToQuarterHour from '../../utils/roundDateToQuaterHour';
 
 export default class TimeRange {
     private constructor(
-        public readonly from: Date,
-        public readonly to: Date,
+        public readonly from: Date | null,
+        public readonly to: Date | null,
     ) {}
 
-    public static create({ from, to }: { from: Date; to: Date }) {
+    public static create({ from, to }: { from: Date | null; to: Date | null }) {
         return new TimeRange(from, to);
     }
 
     public get milliseconds(): number {
+        if (this.from === null || this.to === null) {
+            return 0;
+        }
         return this.to.getTime() - this.from.getTime();
     }
 
@@ -29,24 +32,37 @@ export default class TimeRange {
     }
 
     public asFormattedDurationString(): string {
+        if (this.from === null || this.to === null) {
+            return 'N/A';
+        }
         return `${this.days}d ${this.hours}h ${this.minutes}m ${this.seconds}s`;
     }
 
     public asFormattedDateRangeString(): string {
-        return `${formatDate(this.from)} - ${formatDate(this.to)}`;
+        const fromFormatted = this.from ? formatDate(this.from) : 'N/A';
+        const toFormatted = this.to ? formatDate(this.to) : 'N/A';
+        return `${fromFormatted} - ${toFormatted}`;
     }
 
     public roundToNearestQuarterHour(): TimeRange {
-        const fromRounded = roundDateToQuarterHour(this.from);
-        const toRounded = roundDateToQuarterHour(this.to);
+        const fromRounded = this.from
+            ? roundDateToQuarterHour(this.from)
+            : null;
+        const toRounded = this.to ? roundDateToQuarterHour(this.to) : null;
         return new TimeRange(fromRounded, toRounded);
     }
 
     public isBefore(other: TimeRange): boolean {
+        if (this.from === null || other.from === null) {
+            return false;
+        }
         return this.from < other.from;
     }
 
     public endsBefore(other: TimeRange): boolean {
+        if (this.to === null || other.from === null) {
+            return false;
+        }
         return this.to < other.from;
     }
 
@@ -55,10 +71,16 @@ export default class TimeRange {
     }
 
     public diffStart(other: TimeRange): number {
+        if (this.from === null || other.from === null) {
+            return 0;
+        }
         return this.from.getTime() - other.from.getTime();
     }
 
     public diffEnd(other: TimeRange): number {
+        if (this.to === null || other.to === null) {
+            return 0;
+        }
         return this.to.getTime() - other.to.getTime();
     }
 
