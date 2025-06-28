@@ -1,11 +1,11 @@
 import { TextBuilder } from 'bunner/framework';
 
-import TimeRange from './TimeRange';
-import TimeRecord from './TimeRecord';
+import TimeRange from '../utility-classes/TimeRange';
+import TimeEntry from './TimeEntry';
 
 export default interface Report {
     readonly timeRange: TimeRange;
-    readonly records: TimeRecord[];
+    readonly entries: TimeEntry[];
 }
 
 export function reportPrintToString(report: Report): string {
@@ -15,9 +15,9 @@ export function reportPrintToString(report: Report): string {
     );
     tb.line();
     tb.indent();
-    for (const record of report.records) {
+    for (const record of report.entries) {
         tb.aligned([
-            record.project.getIdentifier(),
+            record.project?.getIdentifier() ?? 'N/A',
             record.timeRange.asFormattedDateRangeString(),
             '|',
             record.timeRange.asFormattedDurationString(),

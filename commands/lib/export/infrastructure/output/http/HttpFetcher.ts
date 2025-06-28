@@ -1,6 +1,6 @@
 import { ArkErrors, type } from 'arktype';
 
-import { Result } from '../../../domain/utils/type-utils';
+import { Result } from '../../../domain/common/utility-types/Result';
 import { QueryParams, QueryParamSerializer } from './QueryParamSerializer';
 
 export type HttpHeaders = Record<string, string>;

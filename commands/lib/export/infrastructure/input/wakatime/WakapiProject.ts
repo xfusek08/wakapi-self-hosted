@@ -1,7 +1,7 @@
 import { ArkErrors, type } from 'arktype';
 
 import Project from '../../../domain/common/ports/Project.js';
-import { Result } from '../../../domain/utils/type-utils.js';
+import { Result } from '../../../domain/common/utility-types/Result.js';
 
 export default class WakapiProject implements Project {
     private constructor(private readonly _name: string) {}

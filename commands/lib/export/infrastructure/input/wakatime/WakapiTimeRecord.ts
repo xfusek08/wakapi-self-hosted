@@ -1,14 +1,14 @@
 import { ArkErrors, type } from 'arktype';
 
-import TimeRange from '../../../domain/common/ports/TimeRange.js';
-import TimeRecord from '../../../domain/common/ports/TimeRecord.js';
-import { Result } from '../../../domain/utils/type-utils.js';
+import TimeEntry from '../../../domain/common/ports/TimeEntry.js';
+import TimeRangePartial from '../../../domain/common/utility-classes/TimeRangePartial.js';
+import { Result } from '../../../domain/common/utility-types/Result.js';
 import DateString from '../../common/arktype/DateString.js';
 import WakapiProject from './WakapiProject.js';
 
-export default class WakapiTimeRecord implements TimeRecord {
+export default class WakapiTimeEntry implements TimeEntry<WakapiProject> {
     private constructor(
-        public readonly timeRange: TimeRange,
+        public readonly timeRange: TimeRangePartial,
         public readonly project: WakapiProject,
     ) {}
 
@@ -16,13 +16,13 @@ export default class WakapiTimeRecord implements TimeRecord {
         timeRange,
         project,
     }: {
-        timeRange: TimeRange;
+        timeRange: TimeRangePartial;
         project: WakapiProject;
-    }): WakapiTimeRecord {
-        return new WakapiTimeRecord(timeRange, project);
+    }): WakapiTimeEntry {
+        return new WakapiTimeEntry(timeRange, project);
     }
 
-    static parse(data: unknown): Result<WakapiTimeRecord> {
+    static parse(data: unknown): Result<WakapiTimeEntry> {
         const parsed = type({
             start_time: DateString,
             end_time: DateString,
@@ -36,8 +36,8 @@ export default class WakapiTimeRecord implements TimeRecord {
         }
 
         return Result.ok(
-            WakapiTimeRecord.create({
-                timeRange: TimeRange.create({
+            WakapiTimeEntry.create({
+                timeRange: TimeRangePartial.create({
                     from: parsed.start_time,
                     to: parsed.end_time,
                 }),

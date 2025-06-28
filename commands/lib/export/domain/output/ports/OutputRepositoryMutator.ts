@@ -1,10 +1,10 @@
 import Project from '../../common/ports/Project';
-import TimeRecord from '../../common/ports/TimeRecord';
-import { Result } from '../../utils/type-utils';
+import TimeEntry from '../../common/ports/TimeEntry';
+import { Result } from '../../common/utility-types/Result';
 
 export interface OutputRepositoryMutator {
     pushProject(name: string): Promise<Result<Project>>;
     deleteProject(project: Project): Promise<Result<void>>;
-    pushRecord(record: TimeRecord): Promise<Result<void>>;
-    deleteRecord(record: TimeRecord): Promise<Result<void>>;
+    pushEntry(record: TimeEntry): Promise<Result<void>>;
+    deleteEntry(record: TimeEntry): Promise<Result<void>>;
 }

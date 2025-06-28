@@ -1,8 +1,8 @@
 import Report from '../common/ports/Report';
 import { RepositoryQuery } from '../common/ports/RepositoryQuery';
-import TimeRange from '../common/ports/TimeRange';
 import RepositoryQueryProcessor from '../common/RepositoryQueryProcessor';
-import { Result } from '../utils/type-utils';
+import TimeRange from '../common/utility-classes/TimeRange';
+import { Result } from '../common/utility-types/Result';
 
 export default class InputProcessor {
     private constructor(
@@ -17,11 +17,7 @@ export default class InputProcessor {
         return Result.ok(new InputProcessor(inputRepositoryQuery));
     }
 
-    public async generateReport({
-        timeRange,
-    }: {
-        timeRange: TimeRange;
-    }): Promise<Result<Report>> {
+    public async generateReport(timeRange: TimeRange): Promise<Result<Report>> {
         return Result.ensure(async () => {
             const processor = RepositoryQueryProcessor.create(
                 this._inputRepositoryQuery,

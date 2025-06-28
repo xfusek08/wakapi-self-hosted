@@ -1,9 +1,9 @@
 import { defineCommand, log } from 'bunner/framework';
 
-import TimeRange from './lib/export/domain/common/ports/TimeRange';
+import TimeRange from './lib/export/domain/common/utility-classes/TimeRange';
+import { Result } from './lib/export/domain/common/utility-types/Result';
 import InputProcessor from './lib/export/domain/input/InputProcessor';
 import OutputProcessor from './lib/export/domain/output/OutputProcessor';
-import { Result } from './lib/export/domain/utils/type-utils';
 import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
 import SolidtimeApi from './lib/export/infrastructure/output/solid-time/SolidtimeApi';
 import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
@@ -97,15 +97,15 @@ export default defineCommand({
 
         log.info('📖 Step 1: Reading data from Wakapi database...');
         const report = await Result.asyncAssert(
-            inputProcessor.generateReport({
-                timeRange: TimeRange.create({
+            inputProcessor.generateReport(
+                TimeRange.create({
                     from: new Date(options['from']),
                     to: new Date(options['to']),
                 }),
-            }),
+            ),
         );
         log.info(
-            `✅ Input report generated: ${report.records.length} records found\n`,
+            `✅ Input report generated: ${report.entries.length} records found\n`,
         );
 
         // Step 2: Process report with the output record processor

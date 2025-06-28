@@ -1,7 +1,7 @@
 import Project from '../../../domain/common/ports/Project';
-import TimeRecord from '../../../domain/common/ports/TimeRecord';
+import TimeEntry from '../../../domain/common/ports/TimeEntry';
+import { Result } from '../../../domain/common/utility-types/Result';
 import { OutputRepositoryMutator } from '../../../domain/output/ports/OutputRepositoryMutator';
-import { Result } from '../../../domain/utils/type-utils';
 import SolidtimeApi from './SolidtimeApi';
 
 export default class SolidtimeRepositoryMutator
@@ -21,11 +21,11 @@ export default class SolidtimeRepositoryMutator
         throw new Error('Not implemented - deleteProject');
     }
 
-    async pushRecord(record: TimeRecord): Promise<Result<void>> {
+    async pushEntry(record: TimeEntry): Promise<Result<void>> {
         throw new Error('Not implemented - createRecord');
     }
 
-    async deleteRecord(record: TimeRecord): Promise<Result<void>> {
+    async deleteEntry(record: TimeEntry): Promise<Result<void>> {
         throw new Error('Not implemented - deleteRecord');
     }
 }

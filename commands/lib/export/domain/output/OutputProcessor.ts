@@ -1,8 +1,8 @@
 import Report, { reportPrintToString } from '../common/ports/Report';
 import { RepositoryQuery } from '../common/ports/RepositoryQuery';
-import TimeRange from '../common/ports/TimeRange';
 import RepositoryQueryProcessor from '../common/RepositoryQueryProcessor';
-import { Result } from '../utils/type-utils';
+import TimeRange from '../common/utility-classes/TimeRange';
+import { Result } from '../common/utility-types/Result';
 import { OutputRepositoryMutator } from './ports/OutputRepositoryMutator';
 
 export default class OutputProcessor {
