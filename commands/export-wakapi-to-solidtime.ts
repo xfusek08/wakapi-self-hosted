@@ -8,6 +8,7 @@ import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/s
 import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
 import InputProcessor from './lib/export/domain/input/InputProcessor';
 import OutputProcessor from './lib/export/domain/output/OutputProcessor';
+import TimeRange from './lib/export/domain/common/ports/TimeRange';
 
 export default defineCommand({
     command: 'export-wakapi-to-solidtime',
@@ -64,6 +65,8 @@ export default defineCommand({
         },
     ] as const,
     action: async ({ options }) => {
+        Error.stackTraceLimit = 50; // Increase stack trace depth
+
         const inputRepositoryQuery = WakapiDatabase.create({
             wakapiDbPath: options['wakapi-db-file'],
         }).assert();
@@ -109,8 +112,10 @@ export default defineCommand({
         log.info('📖 Step 1: Reading data from Wakapi database...');
         const report = await Result.asyncAssert(
             inputProcessor.generateReport({
-                from: new Date(options['from']),
-                to: new Date(options['to']),
+                timeRange: TimeRange.create({
+                    from: new Date(options['from']),
+                    to: new Date(options['to']),
+                }),
             }),
         );
         log.info(

@@ -2,26 +2,23 @@ import { ArkErrors, type } from 'arktype';
 import TimeRecord from '../../../domain/common/ports/TimeRecord.js';
 import { Result } from '../../../domain/utils/type-utils.js';
 import WakapiProject from './WakapiProject.js';
-import Project from '../../../domain/common/ports/Project.js';
-import SqliteDateString from '../../arktype/SqliteDateString.js';
+import SqliteDateString from '../../common/arktype/SqliteDateString.js';
+import TimeRange from '../../../domain/common/ports/TimeRange.js';
 
 export default class WakapiTimeRecord implements TimeRecord {
     private constructor(
-        private readonly _from: Date,
-        private readonly _to: Date,
-        public readonly _project: WakapiProject,
+        public readonly timeRange: TimeRange,
+        public readonly project: WakapiProject,
     ) {}
 
     static create({
-        from,
-        to,
+        timeRange,
         project,
     }: {
-        from: Date;
-        to: Date;
+        timeRange: TimeRange;
         project: WakapiProject;
     }): WakapiTimeRecord {
-        return new WakapiTimeRecord(from, to, project);
+        return new WakapiTimeRecord(timeRange, project);
     }
 
     static parse(data: unknown): Result<WakapiTimeRecord> {
@@ -39,22 +36,12 @@ export default class WakapiTimeRecord implements TimeRecord {
 
         return Result.ok(
             WakapiTimeRecord.create({
-                from: parsed.start_time,
-                to: parsed.end_time,
+                timeRange: TimeRange.create({
+                    from: parsed.start_time,
+                    to: parsed.end_time,
+                }),
                 project: parsed.project,
             }),
         );
-    }
-
-    public get from(): Date {
-        return this._from;
-    }
-
-    public get to(): Date {
-        return this._to;
-    }
-
-    public get project(): Project {
-        return this._project;
     }
 }

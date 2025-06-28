@@ -25,13 +25,22 @@ export default class OutputProcessor {
     public async processReport(outputReport: Report) {
         return Result.ensure(() => {
             const tb = new TextBuilder();
+            tb.line(
+                `Input reports in rage:  ${outputReport.timeRange.asFormattedDateRangeString()}:`,
+            );
+            tb.line();
+            tb.indent();
             for (const report of outputReport.records) {
                 tb.aligned([
                     report.project.getIdentifier(),
-                    report.from.toISOString(),
-                    report.to.toISOString(),
+                    report.timeRange.asFormattedDateRangeString(),
+                    '|',
+                    report.timeRange.asFormattedDurationString(),
                 ]);
             }
+            tb.unindent();
+            tb.line();
+
             console.log(tb.render());
         });
     }

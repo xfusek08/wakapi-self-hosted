@@ -1,13 +1,14 @@
--- database: ./wakapi.db
+-- database: ../data/wakapi.db
+
 SELECT
     project,
-    entity,
     datetime(time, 'localtime') as timestamp,
+    entity,
     created_at
 FROM
     heartbeats
 WHERE
-    time > '2025-03-29'
-    AND time < '2025-03-30'
+    time > '2025-06-24'
+    AND time < '2025-06-25'
 ORDER BY
-    time DESC
+    time ASC

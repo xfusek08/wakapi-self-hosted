@@ -4,6 +4,7 @@ import { Result } from '../../../domain/utils/type-utils';
 import WakapiProject from './WakapiProject';
 import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import WakapiTimeRecord from './WakapiTimeRecord';
+import TimeRange from '../../../domain/common/ports/TimeRange';
 
 interface ProjectRow {
     project: string;
@@ -35,9 +36,10 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
         }
     }
 
-    public async getProjects(range: {
-        from: Date;
-        to: Date;
+    public async getProjects({
+        timeRange,
+    }: {
+        timeRange: TimeRange;
     }): Promise<Result<WakapiProject[]>> {
         try {
             const sql = `
@@ -86,8 +88,8 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
                         SELECT
                             chunk_id,
                             project,
-                            MIN(time) AS start_time,
-                            MAX(time) AS end_time
+                            datetime(MIN(time), 'localtime') AS start_time,
+                            datetime(MAX(time), 'localtime') AS end_time
                         FROM
                             grouped_heartbeats
                         GROUP BY
@@ -104,14 +106,15 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
 
             const query = this._database.query(sql);
             const rows = query.all({
-                from: this.dateToParamString(range.from),
-                to: this.dateToParamString(range.to),
+                from: this.dateToParamString(timeRange.from),
+                to: this.dateToParamString(timeRange.to),
             });
+
+            console.log(rows);
 
             const projects = rows.map((row) =>
                 WakapiProject.parse(row).assert(),
             );
-
             return Result.ok(projects);
         } catch (error) {
             return Result.error(
@@ -122,10 +125,13 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
         }
     }
 
-    public getRecordsForProject(
-        project: WakapiProject,
-        range: { from: Date; to: Date },
-    ): Promise<Result<TimeRecord[]>> {
+    public getRecordsForProject({
+        project,
+        timeRange,
+    }: {
+        project: WakapiProject;
+        timeRange: TimeRange;
+    }): Promise<Result<TimeRecord[]>> {
         return Result.ensure(async () => {
             const sql = `
                 WITH
@@ -166,8 +172,8 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
                 SELECT
                     chunk_id,
                     project,
-                    MIN(time) AS start_time,
-                    MAX(time) AS end_time
+                    datetime(MIN(time), 'localtime') AS start_time,
+                    datetime(MAX(time), 'localtime') AS end_time
                 FROM
                     grouped_heartbeats
                 GROUP BY
@@ -179,10 +185,15 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
 
             const statement = this._database.query(sql);
             const rows = statement.all({
-                from: this.dateToParamString(range.from),
-                to: this.dateToParamString(range.to),
+                from: this.dateToParamString(timeRange.from),
+                to: this.dateToParamString(timeRange.to),
                 project: project.name,
             });
+
+            console.log('');
+            console.log(`Records for project ${project.name}:`);
+            console.log(rows);
+            console.log('');
 
             const parsed = rows.map((row) =>
                 WakapiTimeRecord.parse(row).assert(),

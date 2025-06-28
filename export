@@ -2,10 +2,10 @@
 
 # Export Wakapi data to Solidtime (dry run)
 ./run export-wakapi-to-solidtime \
-    # --solidtime-url "https://your-solidtime-instance.com" \
-    # --solidtime-key "your-api-key-here" \
-    # --solidtime-organization-id "your-org-id-here" \
     --wakapi-db-file "./data/wakapi.db" \
-    --from "2025-06-01" \
-    --to "2025-06-09" \
+    --from "2025-06-24" \
+    --to "2025-06-25" \
     --dry-run
+# --solidtime-url "https://your-solidtime-instance.com" \
+# --solidtime-key "your-api-key-here" \
+# --solidtime-organization-id "your-org-id-here" \

@@ -1,7 +1,7 @@
 import Project from './Project';
+import TimeRange from './TimeRange';
 
 export default interface TimeRecord {
-    from: Date;
-    to: Date;
-    project: Project;
+    readonly timeRange: TimeRange;
+    readonly project: Project;
 }
