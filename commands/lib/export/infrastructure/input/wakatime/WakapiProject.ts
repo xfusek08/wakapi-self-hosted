@@ -1,4 +1,5 @@
 import { ArkErrors, type } from 'arktype';
+
 import Project from '../../../domain/common/ports/Project.js';
 import { Result } from '../../../domain/utils/type-utils.js';
 

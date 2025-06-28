@@ -1,6 +1,6 @@
-import { Result } from '../../utils/type-utils';
 import Project from '../../common/ports/Project';
 import TimeRecord from '../../common/ports/TimeRecord';
+import { Result } from '../../utils/type-utils';
 
 export interface OutputRepositoryMutator {
     pushProject(name: string): Promise<Result<Project>>;

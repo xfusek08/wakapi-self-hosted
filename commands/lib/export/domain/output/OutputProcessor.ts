@@ -1,12 +1,13 @@
+import Report, { reportPrintToString } from '../common/ports/Report';
+import { RepositoryQuery } from '../common/ports/RepositoryQuery';
+import TimeRange from '../common/ports/TimeRange';
+import RepositoryQueryProcessor from '../common/RepositoryQueryProcessor';
 import { Result } from '../utils/type-utils';
-import { OutputRepositoryQuery } from './ports/OutputRepositoryQuery';
 import { OutputRepositoryMutator } from './ports/OutputRepositoryMutator';
-import Report from '../common/ports/Report';
-import { TextBuilder } from 'bunner/framework';
 
 export default class OutputProcessor {
     private constructor(
-        private readonly _outputRepositoryQuery: OutputRepositoryQuery,
+        private readonly _outputRepositoryQuery: RepositoryQuery,
         private readonly _outputRepositoryMutator: OutputRepositoryMutator,
     ) {}
 
@@ -14,7 +15,7 @@ export default class OutputProcessor {
         outputRepositoryQuery,
         outputRepositoryMutator,
     }: {
-        outputRepositoryQuery: OutputRepositoryQuery;
+        outputRepositoryQuery: RepositoryQuery;
         outputRepositoryMutator: OutputRepositoryMutator;
     }): Result<OutputProcessor> {
         return Result.ok(
@@ -22,26 +23,27 @@ export default class OutputProcessor {
         );
     }
 
-    public async processReport(outputReport: Report) {
-        return Result.ensure(() => {
-            const tb = new TextBuilder();
-            tb.line(
-                `Input reports in rage:  ${outputReport.timeRange.asFormattedDateRangeString()}:`,
-            );
-            tb.line();
-            tb.indent();
-            for (const report of outputReport.records) {
-                tb.aligned([
-                    report.project.getIdentifier(),
-                    report.timeRange.asFormattedDateRangeString(),
-                    '|',
-                    report.timeRange.asFormattedDurationString(),
-                ]);
-            }
-            tb.unindent();
-            tb.line();
+    public async processReport(inputReport: Report) {
+        return Result.ensure(async () => {
+            console.log('\nOutputProcessor: Processing input record:\n');
+            console.log(reportPrintToString(inputReport));
 
-            console.log(tb.render());
+            console.log('\nOutputProcessor: Fetching output report:\n');
+            const currentOutputReport = await Result.asyncAssert(
+                this.fetchOutputReport(inputReport.timeRange),
+            );
+            console.log(reportPrintToString(currentOutputReport));
+        });
+    }
+
+    public async fetchOutputReport(
+        timeRange: TimeRange,
+    ): Promise<Result<Report>> {
+        return Result.ensure(async () => {
+            const processor = RepositoryQueryProcessor.create(
+                this._outputRepositoryQuery,
+            ).assert();
+            return await processor.generateReport(timeRange);
         });
     }
 }

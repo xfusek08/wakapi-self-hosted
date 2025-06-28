@@ -1,14 +1,15 @@
 import { defineCommand, log } from 'bunner/framework';
-import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
-import SolidtimeApiConnectionConfiguration from './lib/export/infrastructure/output/solid-time/SolidtimeApiConnectionConfiguration';
-import { Result } from './lib/export/domain/utils/type-utils';
-import SolidtimeRepositoryQuery from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQuery';
-import SolidtimeRepositoryQueryMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQueryMock';
-import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';
-import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
+
+import TimeRange from './lib/export/domain/common/ports/TimeRange';
 import InputProcessor from './lib/export/domain/input/InputProcessor';
 import OutputProcessor from './lib/export/domain/output/OutputProcessor';
-import TimeRange from './lib/export/domain/common/ports/TimeRange';
+import { Result } from './lib/export/domain/utils/type-utils';
+import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
+import SolidtimeApiConnectionConfiguration from './lib/export/infrastructure/output/solid-time/SolidtimeApiConnectionConfiguration';
+import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
+import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';
+import SolidtimeRepositoryQuery from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQuery';
+import SolidtimeRepositoryQueryMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQueryMock';
 
 export default defineCommand({
     command: 'export-wakapi-to-solidtime',
@@ -82,7 +83,7 @@ export default defineCommand({
             solidTimeApiConnectionConfiguration,
             {
                 ok: (configuration) =>
-                    SolidtimeRepositoryQuery.create({ configuration }),
+                    SolidtimeRepositoryQuery.create(configuration),
                 err: (error) => {
                     if (!options['dry-run']) {
                         return Result.error(error);

@@ -1,23 +1,13 @@
 import { Database } from 'bun:sqlite';
-import { InputRepositoryQuery } from '../../../domain/input/ports/InputRepositoryQuery';
+
+import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
+import TimeRange from '../../../domain/common/ports/TimeRange';
+import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import { Result } from '../../../domain/utils/type-utils';
 import WakapiProject from './WakapiProject';
-import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import WakapiTimeRecord from './WakapiTimeRecord';
-import TimeRange from '../../../domain/common/ports/TimeRange';
 
-interface ProjectRow {
-    project: string;
-}
-
-interface TimeFrameRow {
-    chunk_id: number;
-    project: string;
-    start_time: string;
-    end_time: string;
-}
-
-export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
+export class WakapiDatabase implements RepositoryQuery<WakapiProject> {
     private constructor(private readonly _database: Database) {}
 
     static create({
@@ -36,11 +26,9 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
         }
     }
 
-    public async getProjects({
-        timeRange,
-    }: {
-        timeRange: TimeRange;
-    }): Promise<Result<WakapiProject[]>> {
+    public async getProjects(
+        timeRange: TimeRange,
+    ): Promise<Result<WakapiProject[]>> {
         try {
             const sql = `
                 WITH
@@ -105,16 +93,20 @@ export class WakapiDatabase implements InputRepositoryQuery<WakapiProject> {
             `;
 
             const query = this._database.query(sql);
-            const rows = query.all({
+
+            const params = {
                 from: this.dateToParamString(timeRange.from),
                 to: this.dateToParamString(timeRange.to),
-            });
+            };
+
+            const rows = query.all(params);
 
             console.log(rows);
 
             const projects = rows.map((row) =>
                 WakapiProject.parse(row).assert(),
             );
+
             return Result.ok(projects);
         } catch (error) {
             return Result.error(

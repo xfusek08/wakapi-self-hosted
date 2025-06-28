@@ -1,18 +1,18 @@
-import { InputRepositoryQuery } from './ports/InputRepositoryQuery';
-import { Result } from '../utils/type-utils';
 import Report from '../common/ports/Report';
-import TimeRecord from '../common/ports/TimeRecord';
+import { RepositoryQuery } from '../common/ports/RepositoryQuery';
 import TimeRange from '../common/ports/TimeRange';
+import RepositoryQueryProcessor from '../common/RepositoryQueryProcessor';
+import { Result } from '../utils/type-utils';
 
 export default class InputProcessor {
     private constructor(
-        private readonly _inputRepositoryQuery: InputRepositoryQuery,
+        private readonly _inputRepositoryQuery: RepositoryQuery,
     ) {}
 
     public static create({
         inputRepositoryQuery,
     }: {
-        inputRepositoryQuery: InputRepositoryQuery;
+        inputRepositoryQuery: RepositoryQuery;
     }): Result<InputProcessor> {
         return Result.ok(new InputProcessor(inputRepositoryQuery));
     }
@@ -23,27 +23,11 @@ export default class InputProcessor {
         timeRange: TimeRange;
     }): Promise<Result<Report>> {
         return Result.ensure(async () => {
-            const projectsResult = await Result.asyncAssert(
-                this._inputRepositoryQuery.getProjects({ timeRange }),
-            );
-
-            const allRecords: TimeRecord[] = [];
-            for (const project of projectsResult) {
-                const records = await Result.asyncAssert(
-                    this._inputRepositoryQuery.getRecordsForProject({
-                        project,
-                        timeRange,
-                    }),
-                );
-                allRecords.push(...records);
-            }
-
-            allRecords.sort((a, b) => a.timeRange.diffStart(b.timeRange));
-
-            return {
-                timeRange,
-                records: allRecords,
-            };
+            const processor = RepositoryQueryProcessor.create(
+                this._inputRepositoryQuery,
+            ).assert();
+            const res = await processor.generateReport(timeRange);
+            return res;
         });
     }
 }

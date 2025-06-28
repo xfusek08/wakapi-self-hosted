@@ -2,7 +2,6 @@ import Project from '../../../domain/common/ports/Project';
 import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import { OutputRepositoryMutator } from '../../../domain/output/ports/OutputRepositoryMutator';
 import { Result } from '../../../domain/utils/type-utils';
-import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
 
 export default class SolidtimeRepositoryMutatorMock
     implements OutputRepositoryMutator

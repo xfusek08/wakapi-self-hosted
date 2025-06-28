@@ -1,10 +1,11 @@
-import Project from '../../../domain/common/ports/Project';
-import { OutputRepositoryQuery } from '../../../domain/output/ports/OutputRepositoryQuery';
+import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
+import TimeRange from '../../../domain/common/ports/TimeRange';
+import TimeRecord from '../../../domain/common/ports/TimeRecord';
 import { Result } from '../../../domain/utils/type-utils';
-import SolidtimeApiConnectionConfiguration from './SolidtimeApiConnectionConfiguration';
+import SolidTimeProject from './SolidTimeProject';
 
 export default class SolidtimeRepositoryQueryMock
-    implements OutputRepositoryQuery
+    implements RepositoryQuery<SolidTimeProject>
 {
     private constructor() {}
 
@@ -12,11 +13,21 @@ export default class SolidtimeRepositoryQueryMock
         return Result.ok(new SolidtimeRepositoryQueryMock());
     }
 
-    async getProjects(): Promise<Result<Project[]>> {
-        throw new Error('Not implemented - getProjects mock');
+    getProjects(timeRange: TimeRange): Promise<Result<SolidTimeProject[]>> {
+        throw new Error(
+            'Method not implemented. Use getProjectsForTimeRange instead.',
+        );
     }
 
-    async getProjectByName(name: string): Promise<Result<Project | null>> {
-        throw new Error('Not implemented - getProjectByName mock');
+    getRecordsForProject({
+        project,
+        timeRange,
+    }: {
+        project: SolidTimeProject;
+        timeRange: TimeRange;
+    }): Promise<Result<TimeRecord[]>> {
+        throw new Error(
+            'Method not implemented. Use getRecordsForProjectForTimeRange instead.',
+        );
     }
 }

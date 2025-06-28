@@ -1,9 +1,10 @@
 import { ArkErrors, type } from 'arktype';
+
+import TimeRange from '../../../domain/common/ports/TimeRange.js';
 import TimeRecord from '../../../domain/common/ports/TimeRecord.js';
 import { Result } from '../../../domain/utils/type-utils.js';
-import WakapiProject from './WakapiProject.js';
 import SqliteDateString from '../../common/arktype/SqliteDateString.js';
-import TimeRange from '../../../domain/common/ports/TimeRange.js';
+import WakapiProject from './WakapiProject.js';
 
 export default class WakapiTimeRecord implements TimeRecord {
     private constructor(

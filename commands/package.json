@@ -1,4 +1,7 @@
 {
+    "scripts": {
+        "fix": "prettier --write . && eslint . --fix"
+    },
     "dependencies": {
         "arktype": "^2.1.20",
         "axios": "^1.10.0",
