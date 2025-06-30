@@ -3,6 +3,6 @@ import { Result } from '../utility-types/Result';
 import Project from './Project';
 import TimeEntry from './TimeEntry';
 
-export interface RepositoryQuery<P extends Project = Project> {
+export default interface RepositoryQuery<P extends Project = Project> {
     getTimeEntries(timeRange: TimeRange): Promise<Result<TimeEntry<P>[]>>;
 }

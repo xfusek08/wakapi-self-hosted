@@ -1,11 +1,13 @@
 import Project from '../../../domain/common/ports/Project';
+import RepositoryMutator from '../../../domain/common/ports/RepositoryMutator';
 import TimeEntry from '../../../domain/common/ports/TimeEntry';
 import { Result } from '../../../domain/common/utility-types/Result';
-import { OutputRepositoryMutator } from '../../../domain/output/ports/OutputRepositoryMutator';
 import SolidtimeApi from './SolidtimeApi';
+import SolidTimeEntry from './SolidTimeEntry';
+import SolidTimeProject from './SolidTimeProject';
 
 export default class SolidtimeRepositoryMutator
-    implements OutputRepositoryMutator
+    implements RepositoryMutator<SolidTimeProject, SolidTimeEntry>
 {
     private constructor(private readonly _api: SolidtimeApi) {}
 
@@ -13,19 +15,11 @@ export default class SolidtimeRepositoryMutator
         return Result.ok(new SolidtimeRepositoryMutator(api));
     }
 
-    async pushProject(name: string): Promise<Result<Project>> {
-        throw new Error('Not implemented - createProject');
+    public async pushProject(name: Project): Promise<void> {
+        throw new Error('Method not implemented.');
     }
 
-    async deleteProject(project: Project): Promise<Result<void>> {
-        throw new Error('Not implemented - deleteProject');
-    }
-
-    async pushEntry(record: TimeEntry): Promise<Result<void>> {
-        throw new Error('Not implemented - createRecord');
-    }
-
-    async deleteEntry(record: TimeEntry): Promise<Result<void>> {
-        throw new Error('Not implemented - deleteRecord');
+    public async pushEntry(record: TimeEntry): Promise<void> {
+        throw new Error('Method not implemented.');
     }
 }

@@ -1,7 +1,7 @@
 import { Database } from 'bun:sqlite';
 import { isNotNil } from 'bunner/framework';
 
-import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
+import RepositoryQuery from '../../../domain/common/ports/RepositoryQuery';
 import TimeEntry from '../../../domain/common/ports/TimeEntry';
 import TimeRange from '../../../domain/common/utility-classes/TimeRange';
 import { Result } from '../../../domain/common/utility-types/Result';

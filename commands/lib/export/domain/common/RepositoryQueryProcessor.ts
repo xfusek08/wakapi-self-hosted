@@ -1,5 +1,5 @@
 import Report from './ports/Report';
-import { RepositoryQuery } from './ports/RepositoryQuery';
+import RepositoryQuery from './ports/RepositoryQuery';
 import TimeRange from './utility-classes/TimeRange';
 import indexBy from './utility-functions/indexBy';
 import { Result } from './utility-types/Result';

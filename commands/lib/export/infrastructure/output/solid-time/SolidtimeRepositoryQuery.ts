@@ -1,4 +1,4 @@
-import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
+import RepositoryQuery from '../../../domain/common/ports/RepositoryQuery';
 import TimeRange from '../../../domain/common/utility-classes/TimeRange';
 import extractTagFromString from '../../../domain/common/utility-functions/extractTagFromString';
 import indexBy from '../../../domain/common/utility-functions/indexBy';

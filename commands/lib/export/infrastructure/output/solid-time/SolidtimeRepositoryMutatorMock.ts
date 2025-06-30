@@ -1,10 +1,12 @@
 import Project from '../../../domain/common/ports/Project';
+import RepositoryMutator from '../../../domain/common/ports/RepositoryMutator';
 import TimeEntry from '../../../domain/common/ports/TimeEntry';
 import { Result } from '../../../domain/common/utility-types/Result';
-import { OutputRepositoryMutator } from '../../../domain/output/ports/OutputRepositoryMutator';
+import SolidTimeEntry from './SolidTimeEntry';
+import SolidTimeProject from './SolidTimeProject';
 
 export default class SolidtimeRepositoryMutatorMock
-    implements OutputRepositoryMutator
+    implements RepositoryMutator<SolidTimeProject, SolidTimeEntry>
 {
     private constructor() {}
 
@@ -12,19 +14,13 @@ export default class SolidtimeRepositoryMutatorMock
         return Result.ok(new SolidtimeRepositoryMutatorMock());
     }
 
-    async pushProject(name: string): Promise<Result<Project>> {
-        throw new Error('Not implemented - createProject mock');
+    public async pushProject(name: Project): Promise<void> {
+        console.log(`New Project: ${name}`);
     }
 
-    async deleteProject(project: Project): Promise<Result<void>> {
-        throw new Error('Not implemented - deleteProject mock');
-    }
-
-    async pushEntry(record: TimeEntry): Promise<Result<void>> {
-        throw new Error('Not implemented - createRecord mock');
-    }
-
-    async deleteEntry(record: TimeEntry): Promise<Result<void>> {
-        throw new Error('Not implemented - deleteRecord mock');
+    public async pushEntry(record: TimeEntry): Promise<void> {
+        console.log(
+            `New Entry: ${record.timeRange.asFormattedDateRangeString()} | ${record.timeRange.asFormattedDurationString()} | ${record.project.displayName}`,
+        );
     }
 }

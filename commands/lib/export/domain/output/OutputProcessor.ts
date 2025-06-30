@@ -1,14 +1,16 @@
+import { values } from 'bunner/framework';
+
 import Report, { reportPrintToString } from '../common/ports/Report';
-import { RepositoryQuery } from '../common/ports/RepositoryQuery';
+import RepositoryMutator from '../common/ports/RepositoryMutator';
+import RepositoryQuery from '../common/ports/RepositoryQuery';
 import RepositoryQueryProcessor from '../common/RepositoryQueryProcessor';
 import TimeRange from '../common/utility-classes/TimeRange';
 import { Result } from '../common/utility-types/Result';
-import { OutputRepositoryMutator } from './ports/OutputRepositoryMutator';
 
 export default class OutputProcessor {
     private constructor(
         private readonly _outputRepositoryQuery: RepositoryQuery,
-        private readonly _outputRepositoryMutator: OutputRepositoryMutator,
+        private readonly _outputRepositoryMutator: RepositoryMutator,
     ) {}
 
     static create({
@@ -16,7 +18,7 @@ export default class OutputProcessor {
         outputRepositoryMutator,
     }: {
         outputRepositoryQuery: RepositoryQuery;
-        outputRepositoryMutator: OutputRepositoryMutator;
+        outputRepositoryMutator: RepositoryMutator;
     }): Result<OutputProcessor> {
         return Result.ok(
             new OutputProcessor(outputRepositoryQuery, outputRepositoryMutator),
@@ -33,6 +35,18 @@ export default class OutputProcessor {
                 this.fetchOutputReport(inputReport.timeRange),
             );
             console.log(reportPrintToString(currentOutputReport));
+
+            for (const inputEntry of values(inputReport.entries)) {
+                const exists =
+                    currentOutputReport.entries[inputEntry.identifier];
+                if (!exists) {
+                    await this._outputRepositoryMutator.pushEntry(inputEntry);
+                } else {
+                    console.log(
+                        `OutputProcessor: Entry with identifier ${inputEntry.identifier} already exists in output report.`,
+                    );
+                }
+            }
         });
     }
 
