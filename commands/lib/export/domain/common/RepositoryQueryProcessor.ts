@@ -1,6 +1,7 @@
 import Report from './ports/Report';
 import { RepositoryQuery } from './ports/RepositoryQuery';
 import TimeRange from './utility-classes/TimeRange';
+import indexBy from './utility-functions/indexBy';
 import { Result } from './utility-types/Result';
 
 export default class RepositoryQueryProcessor {
@@ -22,7 +23,7 @@ export default class RepositoryQueryProcessor {
 
             return {
                 timeRange,
-                entries,
+                entries: indexBy(entries, (entry) => entry.identifier, true),
             };
         });
     }

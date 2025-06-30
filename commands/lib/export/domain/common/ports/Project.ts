@@ -1,3 +1,4 @@
 export default interface Project {
-    getIdentifier(): string;
+    displayName: string;
+    identifier: string;
 }

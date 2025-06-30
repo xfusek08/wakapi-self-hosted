@@ -1,10 +1,12 @@
 {
     "scripts": {
-        "fix": "prettier --write . && eslint . --fix"
+        "fix": "prettier --write . && eslint . --fix && tsc --noEmit --skipLibCheck"
     },
     "dependencies": {
+        "@noble/hashes": "^1.8.0",
         "arktype": "^2.1.20",
-        "bunner": "file:../bunner"
+        "bunner": "file:../bunner",
+        "hi-base32": "^0.5.1"
     },
     "devDependencies": {
         "@types/bun": "^1.2.17",

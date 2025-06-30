@@ -1,7 +1,9 @@
-import TimeRangePartial from '../utility-classes/TimeRangePartial';
+import TimeRange from '../utility-classes/TimeRange';
 import Project from './Project';
 
 export default interface TimeEntry<P extends Project = Project> {
-    readonly timeRange: TimeRangePartial;
-    readonly project: P | null;
+    readonly displayName: string;
+    readonly identifier: string;
+    readonly timeRange: TimeRange;
+    readonly project: P;
 }

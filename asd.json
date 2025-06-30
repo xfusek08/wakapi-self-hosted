@@ -1,7 +1,0 @@
-{
-    "solidtime.apiUrl": "https://app.solidtime.io",
-    "solidtime.organizationId": "5b547e57-b031-4d88-948f-6399f011c9b4",
-    "solidtime.projectMappings": {
-        "file:///home/petr/sw/repo/bytovio/tenantry": "b29010b7-3525-4198-ba81-d6d1aa20f4f1"
-    }
-}

@@ -1,11 +1,11 @@
 import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
-import TimeEntry from '../../../domain/common/ports/TimeEntry';
 import TimeRange from '../../../domain/common/utility-classes/TimeRange';
-import TimeRangePartial from '../../../domain/common/utility-classes/TimeRangePartial';
+import extractTagFromString from '../../../domain/common/utility-functions/extractTagFromString';
 import indexBy from '../../../domain/common/utility-functions/indexBy';
 import { Result } from '../../../domain/common/utility-types/Result';
 import SolidtimeApi from './SolidtimeApi';
-import { SolidTimeProject } from './SolidTimeProject';
+import SolidTimeEntry from './SolidTimeEntry';
+import SolidTimeProject from './SolidTimeProject';
 
 export default class SolidtimeRepositoryQuery
     implements RepositoryQuery<SolidTimeProject>
@@ -18,38 +18,83 @@ export default class SolidtimeRepositoryQuery
         return Result.ok(new SolidtimeRepositoryQuery(configuration));
     }
 
-    private async getProjects(): Promise<SolidTimeProject[]> {
-        const response = await this._api.getProjects();
-        return response.assert().data;
-    }
-
     public async getTimeEntries(
         timeRange: TimeRange,
-    ): Promise<Result<TimeEntry<SolidTimeProject>[]>> {
+    ): Promise<Result<SolidTimeEntry[]>> {
         return Result.ensure(async () => {
-            const projects = await this.getProjects();
-            const projectIndex = indexBy(projects, (p) => p.id);
+            // Prepare project map indexed by ID
+            // ---------------------------------
 
-            const projectById = (id: string | null) => {
+            const projects = await this._api.getProjects();
+            const projectIndex = indexBy(projects.assert().data, (p) => p.id);
+            const projectById = (
+                id: string | null,
+            ): SolidTimeProject | null => {
                 if (!id) {
                     return null;
                 }
-                const project = projectIndex[id];
-                if (!project) {
+                const projectArrayRaw = projectIndex[id];
+                if (!projectArrayRaw) {
                     throw new Error(`Project with ID ${id} not found`);
                 }
-                return project[0] ?? null;
+
+                const projectRaw = projectArrayRaw[0] ?? null;
+                if (!projectRaw) {
+                    return null;
+                }
+
+                const identifier = extractTagFromString(projectRaw.name);
+                if (!identifier) {
+                    return null;
+                }
+
+                return {
+                    id: projectRaw.id,
+                    name: projectRaw.name,
+                    displayName: projectRaw.name,
+                    identifier,
+                };
             };
 
+            // Select all time entries for the tag within the specified time range
+            // -------------------------------------------------------------------
+
             const response = await this._api.getTimeEntries({ timeRange });
-            return response.assert().data.map((e) => ({
-                ...e,
-                timeRange: TimeRangePartial.create({
-                    from: e.start,
-                    to: e.end,
-                }),
-                project: projectById(e.project_id),
-            }));
+
+            // Filter all incomplete entries and return
+            // ----------------------------------------
+
+            const timeEntries: SolidTimeEntry[] = [];
+            for (const entry of response.assert().data) {
+                if (entry.end === null) {
+                    continue;
+                }
+
+                const project = projectById(entry.project_id);
+                if (!project) {
+                    continue;
+                }
+
+                const identifier = extractTagFromString(
+                    entry.description ?? '',
+                );
+
+                if (!identifier) {
+                    continue;
+                }
+
+                timeEntries.push({
+                    ...entry,
+                    timeRange: TimeRange.create({
+                        from: entry.start,
+                        to: entry.end,
+                    }),
+                    project,
+                    displayName: entry.description ?? '',
+                    identifier,
+                });
+            }
+            return timeEntries;
         });
     }
 }

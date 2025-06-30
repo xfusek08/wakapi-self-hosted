@@ -48,14 +48,18 @@ export default class HttpFetcher {
     >(
         endpoint: string,
         validator: T,
+        data: TData,
         options: {
-            data?: TData;
             timeout?: number;
             headers?: HttpHeaders;
             queryParams?: QueryParams;
         } = {},
     ): Promise<Result<T['infer']>> {
-        return this.fetch(endpoint, validator, { ...options, method: 'POST' });
+        return this.fetch(endpoint, validator, {
+            ...options,
+            data,
+            method: 'POST',
+        });
     }
 
     private async fetch<
@@ -81,6 +85,12 @@ export default class HttpFetcher {
         } = options;
 
         const url = this.buildURL(endpoint, queryParams);
+
+        // console.log(`Fetching ${method} ${endpoint} with query params:`, {
+        //     queryParams,
+        //     data,
+        //     url,
+        // });
 
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeout);
@@ -147,13 +157,19 @@ export default class HttpFetcher {
         }
 
         const responseParsed = await response.json();
+        // console.log(`Response from ${method} ${endpoint}:`, responseParsed);
         const validatedData = validator(responseParsed);
         if (validatedData instanceof ArkErrors) {
-            console.error('The invalid data:', responseParsed);
-            return Result.error([
-                'Data Validation after fetch has failed',
+            console.log(
+                '\n\n',
+                '❌ Failed to validate response data:',
+                '\nResponse:\n',
+                responseParsed,
+                '\nErrors:\n',
                 validatedData.summary,
-            ]);
+                '\n\n',
+            );
+            return Result.error('Data Validation after fetch has failed');
         }
 
         return Result.ok(validatedData);

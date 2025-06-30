@@ -5,7 +5,7 @@ import TimeRange from '../../../domain/common/utility-classes/TimeRange.js';
 import { Result } from '../../../domain/common/utility-types/Result.js';
 import DateString from '../../common/arktype/DateString.js';
 import HttpFetcher from '../http/HttpFetcher.js';
-import { SolidTimeProject, SolidTimeProjectType } from './SolidTimeProject.js';
+import SolidTimeProject from './SolidTimeProject.js';
 
 export default class SolidtimeApi {
     private constructor(
@@ -63,7 +63,13 @@ export default class SolidtimeApi {
             this.fetcher.get(
                 '/projects',
                 type({
-                    data: SolidTimeProjectType.array(),
+                    data: type({
+                        id: 'string',
+                        name: 'string',
+                        color: 'string',
+                        client_id: 'string|null',
+                        is_archived: 'boolean',
+                    }).array(),
                     meta: type({
                         total: 'number',
                     }),
@@ -75,9 +81,11 @@ export default class SolidtimeApi {
     public async getTimeEntries({
         timeRange,
         project,
+        tagIds,
     }: {
         timeRange?: TimeRange;
         project?: SolidTimeProject;
+        tagIds?: string[];
     } = {}) {
         return this.cache.cached(
             `getTimeEntries-${timeRange?.asFormattedDateRangeString()}-${project?.id}`,
@@ -91,6 +99,7 @@ export default class SolidtimeApi {
                             end: DateString.or('null'),
                             description: 'string|null',
                             project_id: 'string|null',
+                            tags: 'string[]',
                         }).array(),
                         meta: type({
                             total: 'number',
@@ -101,6 +110,7 @@ export default class SolidtimeApi {
                             start: timeRange?.from,
                             end: timeRange?.to,
                             project_ids: [project?.id],
+                            tag_ids: tagIds,
                         },
                     },
                 ),

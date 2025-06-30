@@ -1,4 +1,5 @@
 import { Database } from 'bun:sqlite';
+import { isNotNil } from 'bunner/framework';
 
 import { RepositoryQuery } from '../../../domain/common/ports/RepositoryQuery';
 import TimeEntry from '../../../domain/common/ports/TimeEntry';
@@ -117,9 +118,9 @@ export class WakapiDatabase implements RepositoryQuery<WakapiProject> {
 
         const rows = query.all(params);
 
-        const projects = rows.map((row) => WakapiProject.parse(row).assert());
-
-        return projects;
+        return rows
+            .map((row) => WakapiProject.parse(row).assert())
+            .filter(isNotNil);
     }
 
     private getRecordsForProject({

@@ -74,6 +74,13 @@ export default class TimeRange {
         return this.milliseconds - other.milliseconds;
     }
 
+    public isIntersecting(other: TimeRange): boolean {
+        return (
+            this.startsBeforeOtherEnds(other) &&
+            this.endsBeforeOtherStarts(other) === false
+        );
+    }
+
     public clone(): TimeRange {
         return TimeRange.create({ from: this.from, to: this.to });
     }

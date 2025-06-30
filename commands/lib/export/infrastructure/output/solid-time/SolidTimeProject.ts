@@ -1,16 +1,6 @@
-import { type } from 'arktype';
+import Project from '../../../domain/common/ports/Project';
 
-export const SolidTimeProjectType = type({
-    id: 'string',
-    name: 'string',
-    color: 'string',
-    client_id: 'string|null',
-    is_archived: 'boolean',
-}).pipe((data) => ({
-    ...data,
-    getIdentifier() {
-        return this.name;
-    },
-}));
-
-export type SolidTimeProject = typeof SolidTimeProjectType.infer;
+export default interface SolidTimeProject extends Project {
+    readonly id: string;
+    readonly name: string | null;
+}

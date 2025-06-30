@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "lint and type-check",
+            "command": "cd \"${workspaceFolder}/commands\" && bun run fix",
+            "problemMatcher": [
+                "$eslint-stylish",
+                {
+                    "base": "$tsc-watch",
+                    "fileLocation": ["relative", "${workspaceFolder}/commands"]
+                }
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "group": "build"
+        }
+    ]
+}

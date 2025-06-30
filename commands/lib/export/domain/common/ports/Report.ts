@@ -5,7 +5,7 @@ import TimeEntry from './TimeEntry';
 
 export default interface Report {
     readonly timeRange: TimeRange;
-    readonly entries: TimeEntry[];
+    readonly entries: Record<string, TimeEntry>;
 }
 
 export function reportPrintToString(report: Report): string {
@@ -15,9 +15,10 @@ export function reportPrintToString(report: Report): string {
     );
     tb.line();
     tb.indent();
-    for (const record of report.entries) {
+    for (const record of Object.values(report.entries)) {
         tb.aligned([
-            record.project?.getIdentifier() ?? 'N/A',
+            record.displayName,
+            record.project.displayName,
             record.timeRange.asFormattedDateRangeString(),
             '|',
             record.timeRange.asFormattedDurationString(),
