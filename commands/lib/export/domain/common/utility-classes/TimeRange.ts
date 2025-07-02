@@ -1,38 +1,22 @@
 import formatDate from '../utility-functions/formatDate';
 import roundDateToQuarterHour from '../utility-functions/roundDateToQuaterHour';
+import Duration from './Duration';
 
 export default class TimeRange {
     private constructor(
         public readonly from: Date,
         public readonly to: Date,
+        public readonly duration: Duration = Duration.fromTimeRange({
+            from,
+            to,
+        }),
     ) {}
 
     public static create({ from, to }: { from: Date; to: Date }) {
         return new TimeRange(from, to);
     }
 
-    public get milliseconds(): number {
-        return this.to.getTime() - this.from.getTime();
-    }
-
-    public get seconds() {
-        return Math.floor((this.milliseconds / 1000) % 60);
-    }
-    public get minutes() {
-        return Math.floor((this.milliseconds / (1000 * 60)) % 60);
-    }
-    public get hours() {
-        return Math.floor((this.milliseconds / (1000 * 60 * 60)) % 24);
-    }
-    public get days() {
-        return Math.floor(this.milliseconds / (1000 * 60 * 60 * 24));
-    }
-
-    public asFormattedDurationString(): string {
-        return `${this.days}d ${this.hours}h ${this.minutes}m ${this.seconds}s`;
-    }
-
-    public asFormattedDateRangeString(): string {
+    public asFormattedString(): string {
         return `${formatDate(this.from)} - ${formatDate(this.to)}`;
     }
 
@@ -59,7 +43,7 @@ export default class TimeRange {
     }
 
     public isLongerThan(other: TimeRange): boolean {
-        return this.milliseconds > other.milliseconds;
+        return this.duration.isLongerThan(other.duration);
     }
 
     public diffStart(other: TimeRange): number {
@@ -71,7 +55,7 @@ export default class TimeRange {
     }
 
     public diffLength(other: TimeRange): number {
-        return this.milliseconds - other.milliseconds;
+        return this.duration.diffLength(other.duration);
     }
 
     public isIntersecting(other: TimeRange): boolean {

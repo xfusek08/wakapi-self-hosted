@@ -38,7 +38,7 @@ export default class WakapiTimeEntry implements TimeEntry<WakapiProject> {
         timeRange: TimeRange;
         project: WakapiProject;
     }) {
-        const input = `${project}${timeRange.asFormattedDateRangeString()}`;
+        const input = `${project}${timeRange.asFormattedString()}`;
         const hashBytes = sha256(new TextEncoder().encode(input));
 
         // Encode hash to base32 and take the first 10 characters

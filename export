@@ -5,6 +5,6 @@
     --solidtime-url "https://app.solidtime.io" \
     --solidtime-key "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZTM0YzkxOS00MTc3LTRhMWEtOWY5Zi0xOWExMzgyN2Q0MWMiLCJqdGkiOiIxZTY2Mjc3NTVhZTY3NWE4ZDFkN2QyMDg0ZDQ4Y2I5YjliYjBmZTk1N2QwNTVjOGI4MTlmZjE4YzU3M2NmNDJkODlmNjgzMjRiMzYyOWI2NyIsImlhdCI6MTc1MTExNzcxNC45MTc3MTYsIm5iZiI6MTc1MTExNzcxNC45MTc3MjMsImV4cCI6MTc4MjY1MzcxNC45MDgyNTcsInN1YiI6ImE2Y2E0NzNlLTNmNjktNDE5Yy05MjVjLThiNWNjOTI3Yzg0ZiIsInNjb3BlcyI6WyIqIl19.amgqK0lk4jOZQVph-f7tLyex7W5l3vdr7QeW2pcUbipTxeGVsULrhA594wtWT938xP8lEnAo0moApie9hkiHOUjKhNBmpQh2vLBkz2-BpyryhtWHl-2qZhuYPKRaAu7O31txWUCenM3GbRHDDCLlEM5lIoKwf8Kz9L3af28tq9CEurMMQSZLiHAhjCWJiakI6LosRKWZbqPOHrH20X0Skgf-TS3X91ddXUrg3VPrVOpSsY9e8aqsIKwHLmSwlxMNxOiBhs-AIJlRvIlbh-yvkK6IpaW7Mxrods0Ba5-5ho9ERgIvq2BVWMfipKjUi-iFBTVQhQHhcOfgPGvnM6Tj952CyIrrBRNac6Ymot2UBN215F0Wcyh-R5YzlBIs3eGMqmkkMYnGbOKGYyTXyPwND8LGfbfkl55_-OZZqSm0Aud6HaPNYAzJ8BMA7EAiRDSoi616fHI5iMXMsI3RL9USmJ9qgqK2Ggoy_V-F--1-cP3PUx_ZktVjR6O-woIqzYw4CSVJ_1-fmdLmzavnE5YV2TI_QxEP5aR7c--RK_vJiqasX6OjWvgOi_GawxBjmmVdsYASnCcCxjD17teah-x0K0OuzJLSqfvtWfUqYkyrn5eCAH_3j6ddSOSrwj9MCdmm5rOVKxXrCRHur7MaaJ5lhmNiiV2gVTzKpEVletRoBfE" \
     --solidtime-organization-id "5b547e57-b031-4d88-948f-6399f011c9b4" \
+    --solidtime-member-id "17d76213-e6f2-4462-9512-bff16545e9d1" \
     --wakapi-db-file "./data/wakapi.db" \
-    --from "2025-06-30" \
-    --to "2025-07-01"
+    $@

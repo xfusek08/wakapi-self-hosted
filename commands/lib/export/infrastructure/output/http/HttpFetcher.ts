@@ -1,6 +1,5 @@
 import { ArkErrors, type } from 'arktype';
 
-import { Result } from '../../../domain/common/utility-types/Result';
 import { QueryParams, QueryParamSerializer } from './QueryParamSerializer';
 
 export type HttpHeaders = Record<string, string>;
@@ -38,7 +37,7 @@ export default class HttpFetcher {
             headers?: HttpHeaders;
             queryParams?: QueryParams;
         } = {},
-    ): Promise<Result<T['infer']>> {
+    ): Promise<T['infer']> {
         return this.fetch(endpoint, validator, { ...options, method: 'GET' });
     }
 
@@ -54,7 +53,7 @@ export default class HttpFetcher {
             headers?: HttpHeaders;
             queryParams?: QueryParams;
         } = {},
-    ): Promise<Result<T['infer']>> {
+    ): Promise<T['infer']> {
         return this.fetch(endpoint, validator, {
             ...options,
             data,
@@ -75,7 +74,7 @@ export default class HttpFetcher {
             headers?: HttpHeaders;
             queryParams?: QueryParams;
         } = {},
-    ): Promise<Result<T['infer']>> {
+    ): Promise<T['infer']> {
         const {
             method = 'GET',
             data = null,
@@ -85,12 +84,6 @@ export default class HttpFetcher {
         } = options;
 
         const url = this.buildURL(endpoint, queryParams);
-
-        // console.log(`Fetching ${method} ${endpoint} with query params:`, {
-        //     queryParams,
-        //     data,
-        //     url,
-        // });
 
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeout);
@@ -122,13 +115,20 @@ export default class HttpFetcher {
         };
 
         if (data) {
-            requestOptions.body = JSON.stringify(data);
+            requestOptions.body = this.serializeData(data);
         }
+
+        // Start request logging
+        console.log(`Fetching ${method} ${endpoint} with query params:`, {
+            queryParams,
+            data,
+            body: data ? this.serializeData(data) : undefined,
+            url,
+        });
 
         // Log curl command for debugging
         // this.logCurlCommand(url, method, requestOptions, data);
 
-        // Start request logging
         process.stdout.write(`Fetching ${method} ${endpoint}... `);
         stopWatch.start();
 
@@ -141,7 +141,7 @@ export default class HttpFetcher {
                 `Error after ${stopWatch.getElapsedTime()}ms\n\n`,
             );
             console.trace(error);
-            return Result.error('Failed to fetch');
+            throw error;
         } finally {
             clearTimeout(timeoutId);
         }
@@ -150,8 +150,15 @@ export default class HttpFetcher {
         process.stdout.write(`done in ${stopWatch.getElapsedTime()}ms\n`);
 
         if (!response.ok) {
-            console.log('\n');
-            return Result.error(
+            const responseParsed = await response.json();
+            console.log(
+                '\n\n',
+                '❌ Request failed:',
+                '\nResponse:\n',
+                responseParsed,
+                '\n\n',
+            );
+            throw new Error(
                 `HTTP error ${response.status}: ${response.statusText}`,
             );
         }
@@ -162,17 +169,17 @@ export default class HttpFetcher {
         if (validatedData instanceof ArkErrors) {
             console.log(
                 '\n\n',
-                '❌ Failed to validate response data:',
+                '❌ Response is in invalid format:',
                 '\nResponse:\n',
                 responseParsed,
                 '\nErrors:\n',
                 validatedData.summary,
                 '\n\n',
             );
-            return Result.error('Data Validation after fetch has failed');
+            throw new Error('Data Validation after fetch has failed');
         }
 
-        return Result.ok(validatedData);
+        return validatedData;
     }
 
     private buildURL(endpoint: string, queryParams: QueryParams = {}): string {
@@ -206,5 +213,24 @@ export default class HttpFetcher {
 
         console.log('\ncurl command:\n\n', curlCommand);
         console.log('\n\n');
+    }
+
+    private serializeData<T extends Record<string, unknown>>(data: T): string {
+        const replaceDatesRecursively = (obj: unknown): unknown => {
+            if (obj instanceof Date) {
+                return obj.toISOString().replace(/\.\d{3}Z$/, 'Z');
+            } else if (Array.isArray(obj)) {
+                return obj.map(replaceDatesRecursively);
+            } else if (obj && typeof obj === 'object') {
+                const newObj: Record<string, unknown> = {};
+                for (const [key, value] of Object.entries(obj)) {
+                    newObj[key] = replaceDatesRecursively(value);
+                }
+                return newObj;
+            }
+            return obj;
+        };
+        const processedData = replaceDatesRecursively(data);
+        return JSON.stringify(processedData);
     }
 }

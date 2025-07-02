@@ -1,14 +1,14 @@
 import { defineCommand, log } from 'bunner/framework';
 
+import { reportPrintToString } from './lib/export/domain/common/ports/Report';
 import TimeRange from './lib/export/domain/common/utility-classes/TimeRange';
 import { Result } from './lib/export/domain/common/utility-types/Result';
 import InputProcessor from './lib/export/domain/input/InputProcessor';
 import OutputProcessor from './lib/export/domain/output/OutputProcessor';
 import { WakapiDatabase } from './lib/export/infrastructure/input/wakatime/WakapiDatabase';
 import SolidtimeApi from './lib/export/infrastructure/output/solid-time/SolidtimeApi';
-import SolidtimeRepositoryMutator from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutator';
+import SolidtimeRepository from './lib/export/infrastructure/output/solid-time/SolidtimeRepository';
 import SolidtimeRepositoryMutatorMock from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryMutatorMock';
-import SolidtimeRepositoryQuery from './lib/export/infrastructure/output/solid-time/SolidtimeRepositoryQuery';
 
 export default defineCommand({
     command: 'export-wakapi-to-solidtime',
@@ -38,6 +38,13 @@ export default defineCommand({
             required: false,
         },
         {
+            long: 'solidtime-member-id',
+            short: 'm',
+            description: 'ID of the Solidtime member to export data to',
+            type: 'string',
+            required: false,
+        },
+        {
             long: 'wakapi-db-file',
             short: 'f',
             description: 'Path to the Wakapi database file to export from',
@@ -63,6 +70,13 @@ export default defineCommand({
             type: 'boolean',
             default: false,
         },
+        {
+            long: 'print-input',
+            short: 'p',
+            description: 'Print the input report to the console',
+            type: 'boolean',
+            default: false,
+        },
     ] as const,
     action: async ({ options }) => {
         Error.stackTraceLimit = 50; // Increase stack trace depth
@@ -75,21 +89,22 @@ export default defineCommand({
             solidtimeUrl: options['solidtime-url'],
             solidtimeApiKey: options['solidtime-key'],
             organizationId: options['solidtime-organization-id'],
+            memberId: options['solidtime-member-id'],
         }).assert();
 
-        const outputRepositoryQuery =
-            SolidtimeRepositoryQuery.create(solidTimeApi).assert();
+        const outputRepository =
+            SolidtimeRepository.create(solidTimeApi).assert();
 
         const outputRepositoryMutator = options['dry-run']
             ? SolidtimeRepositoryMutatorMock.create().assert()
-            : SolidtimeRepositoryMutator.create(solidTimeApi).assert();
+            : outputRepository;
 
         const inputProcessor = InputProcessor.create({
             inputRepositoryQuery,
         }).assert();
 
         const outputProcessor = OutputProcessor.create({
-            outputRepositoryQuery,
+            outputRepositoryQuery: outputRepository,
             outputRepositoryMutator,
         }).assert();
 
@@ -107,6 +122,11 @@ export default defineCommand({
         log.info(
             `✅ Input report generated: ${report.entries.length} records found\n`,
         );
+
+        if (options['print-input']) {
+            console.log(reportPrintToString(report));
+            return;
+        }
 
         // Step 2: Process report with the output record processor
         log.info('🔄 Step 2: Processing records for Solidtime...');
