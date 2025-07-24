@@ -5,7 +5,7 @@ Requires=docker.service
 
 [Service]
 Type=oneshot
-ExecStart=/home/petr/.wakapi/run-wakapi.zsh
+ExecStart=wakapi-start
 RemainAfterExit=yes
 User=petr
 

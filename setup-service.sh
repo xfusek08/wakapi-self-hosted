@@ -1,5 +1,3 @@
-# Make wrapper executable
-chmod +x $HOME/.wakapi/run-wakapi.zsh
 
 # Copy service file to systemd directory
 sudo cp $HOME/.wakapi/wakapi.service /etc/systemd/system/
