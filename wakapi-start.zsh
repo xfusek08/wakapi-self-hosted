@@ -8,12 +8,13 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Create wakapi directory if it doesn't exist
-mkdir -p ~/.wakapi
+mkdir -p "$HOME/.wakapi"
 
 # Define salt file path
-SALT_FILE=~/.wakapi/data/salt
+SALT_FILE="$HOME/.wakapi/data/salt"
 # Generate or read salt
 if [ ! -f "$SALT_FILE" ]; then
+    mkdir -p "$(dirname "$SALT_FILE")"
     echo -e "${YELLOW}🔑 Generating new salt...${NC}"
     cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 >"$SALT_FILE"
 fi
@@ -47,7 +48,7 @@ docker run -d \
     --restart unless-stopped \
     -p 3100:3000 \
     -e "WAKAPI_PASSWORD_SALT=$SALT" \
-    -v ~/.wakapi/data:/data \
+    -v $HOME/.wakapi/data:/data \
     --name wakapi \
     $IMAGE
 
